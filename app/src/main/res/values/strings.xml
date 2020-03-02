@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Liczniki</string>
+    <string name="text1">stan licznika</string>
+    <string name="text2">ok</string>
+</resources>
