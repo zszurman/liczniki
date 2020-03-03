@@ -4,10 +4,10 @@ import android.annotation.SuppressLint
 import java.lang.String.format
 
 object Data {
-    private const val unitPriceW = 5.1 + 7.02
+    private const val unitPriceW = 5.19 + 7.02
     private const val fixedFessW = 10.4 + 3.16
     private const val unitPriceP = 0.2431 + 0.1691 + 0.00139
-    private const val fixedFessP94 = 15.04 + 5 + 6 + 0.33 + 0.38
+    private const val fixedFessP94 = 15.04 + 6 + 5 + 0.33 + 0.38
     private const val fixedFessP95 = 15.04 + 6 + 7.5 + 0.33 + 0.38
     private const val vatW = 8
     private const val vatP = 23
@@ -25,7 +25,7 @@ object Data {
         list.add(
             Counter(
                 0,
-                "Licznik wody",
+                "L. wody",
                 unitW,
                 w1,
                 w2,
@@ -38,7 +38,7 @@ object Data {
         list.add(
             Counter(
                 1,
-                "Licznik prądu 94",
+                "L. energii nr 94",
                 unitP,
                 p941,
                 p942,
@@ -51,7 +51,7 @@ object Data {
         list.add(
             Counter(
                 2,
-                "Licznik prądu 95",
+                "L. energii nr 95",
                 unitP,
                 p951,
                 p952,
@@ -64,7 +64,6 @@ object Data {
         return list
     }
 }
-
 
 class Counter(
     var id: Int,
@@ -89,7 +88,7 @@ class Counter(
     }
 
     private fun currentAcount(): Double {
-        return calculatePriceWear() + fixedFess * vatOk
+        return calculatePriceWear() + (fixedFess * vatOk)
     }
 
     private fun forecastAcount(): Double {
@@ -102,12 +101,12 @@ class Counter(
         val s1 = format("%.2f", calculatePriceWear())
         val s2 = format("%.2f", currentAcount())
         val s3 = format("%.2f", forecastAcount())
-        return """${id +1}. $name
-rozliczenie $dayMeasurement dnia m-ca
-odczyt (O) -> $initialState
-akt. odczyt (O1) - > $endState
-akt. zużycie -> ${calculateWear()} $unit ($s1 zł.)
-akt. rachunek -> $s2 zł.
-prog. rachunek -> $s3 zł."""
+        return """${id +1}. $name (start $dayMeasurement dnia m-ca)
+            
+pocz. odczyt = $initialState
+akt. odczyt = $endState
+akt. zużycie = ${calculateWear()} $unit ($s1 zł.)
+akt. rachunek = $s2 zł.
+prog. rachunku = $s3 zł."""
     }
 }

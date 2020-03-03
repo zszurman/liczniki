@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorWhite"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -13,7 +14,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp">
+        android:layout_marginStart="10dp"
+        android:background="@color/colorWhite">
 
         <com.alexzaitsev.meternumberpicker.MeterView
             android:id="@+id/meterView"
@@ -26,12 +28,15 @@
             android:id="@+id/btn"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="@string/ok" />
+            android:text="@string/ok"
+            android:background="@color/colorWhite"
+            android:textColor="@color/colorPrimary"/>
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"/>
 </LinearLayout>

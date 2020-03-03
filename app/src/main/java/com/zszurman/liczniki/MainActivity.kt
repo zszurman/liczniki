@@ -12,7 +12,6 @@ import com.zszurman.liczniki.Data.w1
 import com.zszurman.liczniki.Data.w2
 import kotlinx.android.synthetic.main.activity_main.*
 
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var list: ArrayList<Counter>
@@ -29,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         ll.visibility = View.INVISIBLE
-
         if (d == 1) finish()
         getPref()
         initRecyclerView()
@@ -44,6 +42,7 @@ class MainActivity : AppCompatActivity() {
                 12 -> p952 = meterView.value
             }
             setPref()
+            id = 100
             onResume()
             ll.visibility = View.INVISIBLE
         }
@@ -53,14 +52,60 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         meterView.value = l
         initRecyclerView()
-        if (d == 1) {
-            ll.visibility = View.VISIBLE
-        }
+        setActionBar(id)
+        if (d == 1) ll.visibility = View.VISIBLE
     }
 
     override fun onDestroy() {
         super.onDestroy()
         setPref()
+        d = 0
+    }
+
+    private fun initRecyclerView() {
+        list = Data.makeList()
+        rv.apply {
+            layoutManager = GridLayoutManager(this@MainActivity, 1)
+            cardViewAdapter = CardViewAdapter(this@MainActivity)
+            adapter = cardViewAdapter
+            cardViewAdapter.acceptList(list)
+            cardViewAdapter.notifyDataSetChanged()
+        }
+    }
+
+    private fun setActionBar(id: Int) {
+        val mActionBar = supportActionBar
+        if (mActionBar != null)
+            when (id) {
+                0 -> {
+                    mActionBar.title = "Licznik wody"
+                    mActionBar.subtitle = "Podaj odczyt początkowy"
+                }
+                10 -> {
+                    mActionBar.title = "Licznik wody"
+                    mActionBar.subtitle = "Podaj odczyt aktualny"
+                }
+                1 -> {
+                    mActionBar.title = "Licznik energii 94"
+                    mActionBar.subtitle = "Podaj odczyt początkowy"
+                }
+                11 -> {
+                    mActionBar.title = "Licznik energii 94"
+                    mActionBar.subtitle = "Podaj odczyt aktualny"
+                }
+                2 -> {
+                    mActionBar.title = "Licznik energii 95"
+                    mActionBar.subtitle = "Podaj odczyt początkowy"
+                }
+                12 -> {
+                    mActionBar.title = "Licznik energii 95"
+                    mActionBar.subtitle = "Podaj odczyt aktualny"
+                }
+                else -> {
+                    mActionBar.title = "Liczniki"
+                    mActionBar.subtitle = "Kliknij odczyt by aktualizować"
+                }
+            }
     }
 
     private fun getPref() {
@@ -84,20 +129,5 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun initRecyclerView() {
-        list = Data.makeList()
-        rv.apply {
-            layoutManager = GridLayoutManager(this@MainActivity, 1)
-            cardViewAdapter = CardViewAdapter(this@MainActivity)
-            adapter = cardViewAdapter
-            cardViewAdapter.acceptList(list)
-            cardViewAdapter.notifyDataSetChanged()
-            val mActionBar = supportActionBar
-            if (mActionBar != null) {
-                mActionBar.title = resources.getString(R.string.text1)
-                mActionBar.subtitle = resources.getString(R.string.text2)
-            }
-        }
-    }
 
 }

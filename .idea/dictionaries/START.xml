@@ -2,6 +2,8 @@
   <dictionary name="START">
     <words>
       <w>acount</w>
+      <w>akceptuj</w>
+      <w>aktualizuj</w>
       <w>aktualne</w>
       <w>aktualnie</w>
       <w>aktualny</w>
@@ -11,10 +13,13 @@
       <w>liczniki</w>
       <w>odczyt</w>
       <w>ostatni</w>
+      <w>pocz</w>
+      <w>podaj</w>
       <w>prognoza</w>
       <w>prognozowany</w>
       <w>prądu</w>
       <w>rachunek</w>
+      <w>rachunku</w>
       <w>rozliczenie</w>
       <w>stały</w>
       <w>wody</w>
