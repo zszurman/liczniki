@@ -2,4 +2,8 @@
     <string name="app_name">Liczniki</string>
     <string name="text1">stan licznika</string>
     <string name="text2">ok</string>
+    <string name="ostatni_odczyt">ostatni odczyt</string>
+    <string name="aktualny_odczyt">aktualny odczyt</string>
+    <string name="ok">OK</string>
+    <string name="click"><![CDATA[<- O (odczyty) O1 ->]]></string>
 </resources>

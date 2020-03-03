@@ -11,7 +11,7 @@ object Data {
     private const val fixedFessP95 = 15.04 + 6 + 7.5 + 0.33 + 0.38
     private const val vatW = 8
     private const val vatP = 23
-    private const val dayMeasurement = 23
+    private const val dayMeasurement = 5
     private const val unitW = "m^3"
     private const val unitP = "kWh"
     var w1 = 0
@@ -24,6 +24,7 @@ object Data {
         val list = ArrayList<Counter>()
         list.add(
             Counter(
+                0,
                 "Licznik wody",
                 unitW,
                 w1,
@@ -36,6 +37,7 @@ object Data {
         )
         list.add(
             Counter(
+                1,
                 "Licznik prądu 94",
                 unitP,
                 p941,
@@ -48,6 +50,7 @@ object Data {
         )
         list.add(
             Counter(
+                2,
                 "Licznik prądu 95",
                 unitP,
                 p951,
@@ -64,6 +67,7 @@ object Data {
 
 
 class Counter(
+    var id: Int,
     private val name: String,
     private val unit: String,
     var initialState: Int,
@@ -98,12 +102,12 @@ class Counter(
         val s1 = format("%.2f", calculatePriceWear())
         val s2 = format("%.2f", currentAcount())
         val s3 = format("%.2f", forecastAcount())
-        return """$name
+        return """${id +1}. $name
 rozliczenie $dayMeasurement dnia m-ca
-ostatni odczyt -> $initialState
-aktualny odczyt - > $endState
-aktualny zużycie -> ${calculateWear()} $unit ($s1 zł.)
-aktualny rachunek -> $s2 zł.
-prognozowany rachunek -> $s3 zł."""
+odczyt (O) -> $initialState
+akt. odczyt (O1) - > $endState
+akt. zużycie -> ${calculateWear()} $unit ($s1 zł.)
+akt. rachunek -> $s2 zł.
+prog. rachunek -> $s3 zł."""
     }
 }

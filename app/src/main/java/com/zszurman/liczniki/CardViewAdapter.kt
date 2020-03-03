@@ -1,10 +1,13 @@
 package com.zszurman.liczniki
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.row.view.*
 
@@ -32,33 +35,40 @@ class CardViewAdapter(private val context: Context) :
         }
     }
 
-    fun acceptList(osobyList: List<Counter>) {
-        list = osobyList
+    fun acceptList(counterList: List<Counter>) {
+        list = counterList
     }
 }
 
 class DocumentViewHolder(context: Context, holder: View) : RecyclerView.ViewHolder(holder) {
 
     private val inscription = holder.tv
-    private val rInit = holder.tv1
-    private val rEnd = holder.tv2
-    private val mV1 = holder.meterView1
-    private val mV2 = holder.meterView2
+    private val n1 = holder.tn1
+    private val n2 = holder.tn2
+    private val id = holder.idTv
 
     fun hold(counter: Counter) {
         inscription.text = counter.makeString()
-        mV1.value = counter.initialState
-        mV2.value = counter.endState
+        n1.text = counter.initialState.toString()
+        n2.text = counter.endState.toString()
+        id.text = counter.id.toString()
     }
 
     init {
-        rInit.setOnClickListener {
-            Toast.makeText(context, "Wprowadzono stały odczyt", Toast.LENGTH_SHORT).show()
+        n1.setOnClickListener {
+            MainActivity.d = 1
+            MainActivity.l = n1.text.toString().toInt()
+            MainActivity.id = id.text.toString().toInt()
+            val intent = Intent(context, MainActivity::class.java)
+            startActivity(context, intent, bundleOf())
         }
-        rEnd.setOnClickListener {
-            Toast.makeText(context, "Wprowadzono aktualny odczyt", Toast.LENGTH_SHORT).show()
+        n2.setOnClickListener {
+            MainActivity.d = 1
+            MainActivity.l = n2.text.toString().toInt()
+            MainActivity.id = id.text.toString().toInt() + 10
+            val intent = Intent(context, MainActivity::class.java)
+            startActivity(context, intent, bundleOf())
         }
-
     }
 }
 
