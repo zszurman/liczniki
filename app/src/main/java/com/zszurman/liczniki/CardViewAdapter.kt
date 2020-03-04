@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
+import com.zszurman.liczniki.EditionActivity.Edit.currentIdEt
 import com.zszurman.liczniki.MainActivity.X.currentId
 import com.zszurman.liczniki.MainActivity.X.currentName
 import com.zszurman.liczniki.MainActivity.X.currentSubtitle
@@ -51,6 +52,11 @@ class DocumentViewHolder(context: Context, holder: View) : RecyclerView.ViewHold
     private val n2 = holder.tn2
     private val id = holder.idTv
     private val nam = holder.nameTv
+    private val unit = holder.unitTv
+    private val up = holder.upTv
+    private val cp = holder.cpTv
+    private val vat = holder.vatTv
+    private val day = holder.dayTv
 
     fun hold(counter: Counter) {
         inscription.text = counter.makeString()
@@ -58,6 +64,11 @@ class DocumentViewHolder(context: Context, holder: View) : RecyclerView.ViewHold
         n2.text = counter.endState.toString()
         id.text = counter.id.toString()
         nam.text = counter.name
+        unit.text = counter.unit
+        up.text = counter.unitPrice.toString()
+        cp.text = counter.fixedFess.toString()
+        vat.text = counter.vat.toString()
+        day.text = counter.dayMeasurement.toString()
     }
 
     init {
@@ -78,6 +89,14 @@ class DocumentViewHolder(context: Context, holder: View) : RecyclerView.ViewHold
             currentSubtitle = context.getString(R.string.p1)
             val intent = Intent(context, MainActivity::class.java)
             startActivity(context, intent, bundleOf())
+        }
+        inscription.setOnClickListener {
+            currentIdEt = id.text.toString().toInt()
+
+            val intent = Intent(context, EditionActivity::class.java)
+            startActivity(context, intent, bundleOf())
+
+
         }
     }
 }

@@ -9,8 +9,10 @@
       <w>aktualny</w>
       <w>dnia</w>
       <w>getpref</w>
+      <w>jednostka</w>
       <w>licznik</w>
       <w>liczniki</w>
+      <w>nazwa</w>
       <w>odczyt</w>
       <w>ostatni</w>
       <w>pocz</w>
@@ -22,6 +24,7 @@
       <w>rachunku</w>
       <w>rozliczenie</w>
       <w>stały</w>
+      <w>suma</w>
       <w>wody</w>
       <w>wprowadzono</w>
       <w>zmieniać</w>

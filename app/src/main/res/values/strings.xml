@@ -6,4 +6,11 @@
     <string name="click"><![CDATA[<- odczyty ->]]></string>
     <string name="p0">Podaj odczyt początkowy</string>
     <string name="p1">Podaj odczyt aktualny</string>
+    <string name="jednostka">jednostka miary</string>
+    <string name="nazwa_licznika">Nazwa licznika</string>
+    <string name="nr_licznika">Nr licznika</string>
+    <string name="vat">podatek VAT w %</string>
+    <string name="day">dzień miesiąca (1-28)</string>
+    <string name="suma1">suma wszystkich opłat stałych</string>
+    <string name="suma2">suma wszystkich cen jednostkowych</string>
 </resources>

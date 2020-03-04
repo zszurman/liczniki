@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EditionActivity">
+
+    <TextView
+        android:id="@+id/idEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nr_licznika" />
+
+    <EditText
+        android:id="@+id/nameEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nazwa_licznika"
+        android:inputType="textNoSuggestions" />
+
+    <EditText
+        android:id="@+id/unitEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/jednostka"
+        android:inputType="textNoSuggestions" />
+
+    <EditText
+        android:id="@+id/upEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/suma2"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/cpEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/suma1"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/vatEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/vat"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/dayEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/day"
+        android:inputType="number" />
+    <Button
+        android:id="@+id/btnEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ok"/>
+
+</LinearLayout>
