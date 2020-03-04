@@ -76,6 +76,10 @@
                 android:id="@+id/idTv"
                 android:layout_width="0dp"
                 android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/nameTv"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
         </LinearLayout>
 
 

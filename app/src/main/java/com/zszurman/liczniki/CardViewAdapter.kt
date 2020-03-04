@@ -8,6 +8,11 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
+import com.zszurman.liczniki.MainActivity.X.currentId
+import com.zszurman.liczniki.MainActivity.X.currentName
+import com.zszurman.liczniki.MainActivity.X.currentSubtitle
+import com.zszurman.liczniki.MainActivity.X.measurement
+import com.zszurman.liczniki.MainActivity.X.screen
 import kotlinx.android.synthetic.main.row.view.*
 
 class CardViewAdapter(private val context: Context) :
@@ -45,26 +50,32 @@ class DocumentViewHolder(context: Context, holder: View) : RecyclerView.ViewHold
     private val n1 = holder.tn1
     private val n2 = holder.tn2
     private val id = holder.idTv
+    private val nam = holder.nameTv
 
     fun hold(counter: Counter) {
         inscription.text = counter.makeString()
         n1.text = counter.initialState.toString()
         n2.text = counter.endState.toString()
         id.text = counter.id.toString()
+        nam.text = counter.name
     }
 
     init {
         n1.setOnClickListener {
-            MainActivity.d = 1
-            MainActivity.l = n1.text.toString().toInt()
-            MainActivity.id = id.text.toString().toInt()
+            screen = 1
+            measurement = n1.text.toString().toInt()
+            currentId = id.text.toString().toInt()
+            currentName = nam.text.toString()
+            currentSubtitle = context.getString(R.string.p0)
             val intent = Intent(context, MainActivity::class.java)
             startActivity(context, intent, bundleOf())
         }
         n2.setOnClickListener {
-            MainActivity.d = 1
-            MainActivity.l = n2.text.toString().toInt()
-            MainActivity.id = id.text.toString().toInt() + 10
+            screen = 1
+            measurement = n2.text.toString().toInt()
+            currentId = id.text.toString().toInt() + 10
+            currentName = nam.text.toString()
+            currentSubtitle = context.getString(R.string.p1)
             val intent = Intent(context, MainActivity::class.java)
             startActivity(context, intent, bundleOf())
         }

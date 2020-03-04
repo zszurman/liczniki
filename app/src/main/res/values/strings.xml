@@ -4,4 +4,6 @@
     <string name="aktualny_odczyt" tools:keep="@string/aktualny_odczyt">aktualny odczyt</string>
     <string name="ok">Aktualizuj</string>
     <string name="click"><![CDATA[<- odczyty ->]]></string>
+    <string name="p0">Podaj odczyt początkowy</string>
+    <string name="p1">Podaj odczyt aktualny</string>
 </resources>
