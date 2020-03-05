@@ -7,7 +7,9 @@
       <w>aktualne</w>
       <w>aktualnie</w>
       <w>aktualny</w>
+      <w>aplikacja</w>
       <w>baleno</w>
+      <w>bieżącego</w>
       <w>będzie</w>
       <w>danych</w>
       <w>dnia</w>
@@ -21,6 +23,7 @@
       <w>jednostkę</w>
       <w>jeżeli</w>
       <w>klikając</w>
+      <w>koszt</w>
       <w>która</w>
       <w>lewej</w>
       <w>licznik</w>
@@ -29,6 +32,8 @@
       <w>masz</w>
       <w>miary</w>
       <w>miesiąca</w>
+      <w>miesięcznych</w>
+      <w>monitorowania</w>
       <w>nazwa</w>
       <w>nazwę</w>
       <w>odczyt</w>
@@ -42,16 +47,20 @@
       <w>pomiarową</w>
       <w>pomiaru</w>
       <w>pomnożona</w>
+      <w>pomoc</w>
       <w>poprawnie</w>
+      <w>poza</w>
       <w>prawej</w>
       <w>prognoza</w>
       <w>prognozowany</w>
       <w>przeglądaj</w>
       <w>przez</w>
+      <w>przeznaczona</w>
       <w>prądu</w>
       <w>rachunek</w>
       <w>rachunku</w>
       <w>rozliczenie</w>
+      <w>serdecznie</w>
       <w>stały</w>
       <w>stałych</w>
       <w>stronie</w>
@@ -60,6 +69,7 @@
       <w>takich</w>
       <w>uwaga</w>
       <w>wartość</w>
+      <w>witam</w>
       <w>wody</w>
       <w>wpisz</w>
       <w>wprowadzaj</w>
@@ -68,13 +78,18 @@
       <w>wszystkich</w>
       <w>wszystkie</w>
       <w>wybierz</w>
+      <w>wydatków</w>
       <w>wykonywania</w>
+      <w>właśnie</w>
       <w>zaktualizowano</w>
       <w>zmieniać</w>
       <w>znajduje</w>
       <w>zszurman</w>
       <w>zuzycie</w>
+      <w>zużycia</w>
       <w>zużycie</w>
+      <w>zużyciem</w>
+      <w>związanych</w>
     </words>
   </dictionary>
 </component>
