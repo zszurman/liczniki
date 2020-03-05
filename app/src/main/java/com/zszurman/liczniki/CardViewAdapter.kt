@@ -29,7 +29,7 @@ class CardViewAdapter(private val context: Context) :
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return MainActivity.cC
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

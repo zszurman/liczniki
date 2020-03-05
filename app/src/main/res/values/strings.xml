@@ -15,4 +15,5 @@
     <string name="suma2">Suma wszystkich cen jednostkowych, która pomnożona będzie przez zużycie</string>
     <string name="uwaga">Uwaga: odczyty wprowadzaj klikając je na głównym ekranie. Odczyt początkowy znajduje się po lewej stronie a odczyt aktualny po prawej.</string>
     <string name="noOk">Nie aktualizuj</string>
+    <string name="menu">Ilość liczników</string>
 </resources>

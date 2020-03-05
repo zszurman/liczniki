@@ -1,7 +1,11 @@
 package com.zszurman.liczniki
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.zszurman.liczniki.Data.cP1
@@ -38,10 +42,9 @@ import com.zszurman.liczniki.Data.vat3
 import com.zszurman.liczniki.Data.vat4
 import kotlinx.android.synthetic.main.activity_main.*
 
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var list: ArrayList<Counter>
-    private lateinit var cardViewAdapter: CardViewAdapter
 
     companion object X {
         var measurement = 0
@@ -49,6 +52,9 @@ class MainActivity : AppCompatActivity() {
         var currentId = 100
         var currentName = ""
         var currentSubtitle = ""
+        var cC = 1
+        lateinit var cardViewAdapter: CardViewAdapter
+        lateinit var list: ArrayList<Counter>
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,7 +75,7 @@ class MainActivity : AppCompatActivity() {
                 11 -> p12 = meterView.value
                 2 -> p03 = meterView.value
                 12 -> p13 = meterView.value
-                3-> p04 = meterView.value
+                3 -> p04 = meterView.value
                 13 -> p14 = meterView.value
             }
             setPref()
@@ -104,12 +110,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setActionBar(id:Int) {
+    private fun setActionBar(id: Int) {
         val mActionBar = supportActionBar
-        if (id == 100) {
-            currentName = "Liczniki"
+        if (id == 100 && cC ==1) {
+            currentName = "Masz 1 licznik"
             currentSubtitle = "Kliknij odczyty by je zmieniać"
         }
+        else if (id == 100) currentName = "Masz $cC liczniki"
         mActionBar?.title = currentName
         mActionBar?.subtitle = currentSubtitle
     }
@@ -152,6 +159,8 @@ class MainActivity : AppCompatActivity() {
         p04 = pref.getP04()
         p14 = pref.getP14()
         day4 = pref.getDay4()
+
+        cC = pref.getCC()
     }
 
     private fun setPref() {
@@ -164,5 +173,65 @@ class MainActivity : AppCompatActivity() {
         pref.setP13(p13)
         pref.setP04(p04)
         pref.setP14(p14)
+        pref.setCC(cC)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item != null) {
+            when (item.itemId) {
+                R.id.action_sort -> showSortDialog()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun showSortDialog() {
+        val pref = Preference(this)
+        val sortOptions =
+            arrayOf("1 licznik","2 liczniki","3 liczniki","4 liczniki")
+        val mBuilder = AlertDialog.Builder(this)
+        mBuilder.setTitle("Wybierz ilość liczników")
+        mBuilder.setIcon(R.mipmap.ic_launcher)
+        mBuilder.setSingleChoiceItems(sortOptions, -1) { dialogInterface, i ->
+            when (i) {
+                0 -> { cC = 1
+                    pref.setCC(cC)
+                    onResume()
+                    Toast.makeText(this, "Masz 1 licznik", Toast.LENGTH_SHORT).show()
+
+                }
+                1 -> { cC = 2
+                    pref.setCC(cC)
+                    onResume()
+                    Toast.makeText(this, "Masz 2 liczniki", Toast.LENGTH_SHORT).show()
+
+                }
+
+                2 -> { cC = 3
+                    pref.setCC(cC)
+                    onResume()
+                    Toast.makeText(this, "Masz 3 liczniki", Toast.LENGTH_SHORT).show()
+
+                }
+                3 -> { cC = 4
+                    pref.setCC(cC)
+                    onResume()
+                    Toast.makeText(this, "Masz 4 liczniki", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+            dialogInterface.dismiss()
+        }
+        val mDialog = mBuilder.create()
+        mDialog.show()
+
+    }
+
 }
+

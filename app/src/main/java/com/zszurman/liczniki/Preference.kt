@@ -42,6 +42,9 @@ class Preference(context: Context) {
     private val p14 = "p14"
     private val day4 = "day4"
 
+    private val cC = "cC"
+
+
     private val sharedPreferences = context.getSharedPreferences(pref, Context.MODE_PRIVATE)
 
 
@@ -362,6 +365,16 @@ class Preference(context: Context) {
     fun setDay4(i: Int) {
         val editor = sharedPreferences.edit()
         editor.putInt(day4, i)
+        editor.apply()
+    }
+
+    fun getCC(): Int {
+        return sharedPreferences.getInt(cC, MainActivity.cC)
+    }
+
+    fun setCC(i: Int) {
+        val editor = sharedPreferences.edit()
+        editor.putInt(cC, i)
         editor.apply()
     }
 }
