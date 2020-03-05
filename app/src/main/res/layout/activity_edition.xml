@@ -3,60 +3,196 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:background="@color/colorPrimary"
     android:orientation="vertical"
     tools:context=".EditionActivity">
 
     <TextView
         android:id="@+id/idEt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/nr_licznika" />
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
 
     <EditText
         android:id="@+id/nameEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/nazwa_licznika"
-        android:inputType="textNoSuggestions" />
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:autofillHints=""
+        android:inputType="textNoSuggestions"
+        android:textColor="@color/colorPrimary1"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/nazwa_licznika"
+        android:textColor="@color/colorWhite" />
 
     <EditText
         android:id="@+id/unitEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/jednostka"
-        android:inputType="textNoSuggestions" />
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:autofillHints=""
+        android:inputType="textNoSuggestions"
+        android:textColor="@color/colorPrimary1"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/jednostka"
+        android:textColor="@color/colorWhite" />
 
     <EditText
         android:id="@+id/upEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/suma2"
-        android:inputType="numberDecimal" />
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:autofillHints=""
+        android:inputType="numberDecimal"
+        android:textColor="@color/colorPrimary1"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/suma2"
+        android:textColor="@color/colorWhite" />
 
     <EditText
         android:id="@+id/cpEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/suma1"
-        android:inputType="numberDecimal" />
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:autofillHints=""
+        android:inputType="numberDecimal"
+        android:textColor="@color/colorPrimary1"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/suma1"
+        android:textColor="@color/colorWhite" />
 
     <EditText
         android:id="@+id/vatEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/vat"
-        android:inputType="number" />
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:autofillHints=""
+        android:inputType="number"
+        android:textColor="@color/colorPrimary1"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/vat"
+        android:textColor="@color/colorWhite" />
 
     <EditText
         android:id="@+id/dayEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/day"
-        android:inputType="number" />
-    <Button
-        android:id="@+id/btnEt"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:autofillHints=""
+        android:inputType="number"
+        android:textColor="@color/colorPrimary1"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        tools:ignore="LabelFor" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ok"/>
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/day"
+        android:textColor="@color/colorWhite" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnEt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/noOk"
+            android:textColor="@color/colorPrimary"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/btnEt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/ok"
+            android:textColor="@color/colorPrimary"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/uwaga"
+        android:textColor="@color/colorWhite" />
 
 </LinearLayout>

@@ -7,10 +7,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="1dp"
+    app:cardBackgroundColor="@color/colorPrimaryDark1"
     app:cardCornerRadius="1dp"
     app:cardElevation="1dp"
-    app:cardUseCompatPadding="true"
-    app:cardBackgroundColor="@color/colorPrimaryDark1">
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:id="@+id/layout2"
@@ -24,10 +24,10 @@
             android:id="@+id/tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:textColor="@color/colorPrimary1"
             android:textSize="18sp"
-            android:textStyle="italic"
-            android:layout_margin="10dp"/>
+            android:textStyle="italic" />
 
         <View
             android:layout_width="match_parent"
@@ -36,12 +36,11 @@
             android:layout_marginBottom="3dp"
             android:background="@color/colorPrimary2" />
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
 
 
             <TextView
@@ -52,7 +51,6 @@
                 android:textColor="@color/colorPrimary2"
                 android:textSize="20sp"
                 android:textStyle="bold|italic" />
-
 
             <TextView
                 android:layout_width="wrap_content"
@@ -76,32 +74,37 @@
                 android:id="@+id/idTv"
                 android:layout_width="0dp"
                 android:layout_height="0dp" />
+
             <TextView
                 android:id="@+id/nameTv"
                 android:layout_width="0dp"
                 android:layout_height="0dp" />
+
             <TextView
                 android:id="@+id/unitTv"
                 android:layout_width="0dp"
                 android:layout_height="0dp" />
+
             <TextView
                 android:id="@+id/upTv"
                 android:layout_width="0dp"
                 android:layout_height="0dp" />
+
             <TextView
                 android:id="@+id/cpTv"
                 android:layout_width="0dp"
                 android:layout_height="0dp" />
+
             <TextView
                 android:id="@+id/vatTv"
                 android:layout_width="0dp"
                 android:layout_height="0dp" />
+
             <TextView
                 android:id="@+id/dayTv"
                 android:layout_width="0dp"
                 android:layout_height="0dp" />
         </LinearLayout>
-
 
     </LinearLayout>
 

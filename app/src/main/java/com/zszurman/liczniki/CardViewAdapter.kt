@@ -92,11 +92,8 @@ class DocumentViewHolder(context: Context, holder: View) : RecyclerView.ViewHold
         }
         inscription.setOnClickListener {
             currentIdEt = id.text.toString().toInt()
-
             val intent = Intent(context, EditionActivity::class.java)
             startActivity(context, intent, bundleOf())
-
-
         }
     }
 }
