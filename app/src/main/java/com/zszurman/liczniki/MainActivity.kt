@@ -100,6 +100,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun initRecyclerView() {
         list = Data.makeList()
+        list.sortWith(Comparator { o1, o2 -> o1.id.compareTo(o2.id) })
+
         rv.apply {
             layoutManager = GridLayoutManager(this@MainActivity, 1)
             cardViewAdapter = CardViewAdapter(this@MainActivity)
