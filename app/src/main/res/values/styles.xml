@@ -18,11 +18,11 @@
     </style>
 
     <style name="MeterViewStyle">
-        <item name="mv_firstColor">@android:color/white</item>
+        <item name="mv_firstColor">@color/colorWhite</item>
         <item name="mv_numberOfFirst">5</item>
         <item name="mv_numberOfSecond">1</item>
         <item name="mv_pickerStyle">@style/MeterNumberPickerStyle</item>
-        <item name="mv_secondColor">@android:color/white</item>
+        <item name="mv_secondColor">@color/colorWhite</item>
     </style>
 
 </resources>

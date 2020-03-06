@@ -48,10 +48,11 @@ class MainActivity : AppCompatActivity() {
     companion object X {
         var measurement = 0
         var screen = 0
+        var alexVisible = 0
         var currentId = 100
         var currentName = ""
         var currentSubtitle = ""
-        var cC = 1
+        var cC = 4
         lateinit var cardViewAdapter: CardViewAdapter
         lateinit var list: ArrayList<Counter>
     }
@@ -61,7 +62,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         if (screen == 1) finish()
-        layoutAlex.visibility = View.INVISIBLE
+        if (alexVisible == 0) layoutAlex.visibility = View.INVISIBLE
+        else layoutAlex.visibility = View.VISIBLE
+
 
         getPref()
         initRecyclerView()
@@ -81,6 +84,7 @@ class MainActivity : AppCompatActivity() {
             currentId = 100
             onResume()
             layoutAlex.visibility = View.INVISIBLE
+            alexVisible = 0
         }
     }
 
@@ -88,19 +92,22 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         meterView.value = measurement
         initRecyclerView()
+        if (alexVisible == 0) {
+            layoutAlex.visibility = View.INVISIBLE
+            currentId = 100
+        } else layoutAlex.visibility = View.VISIBLE
         setActionBar(currentId)
-        if (screen == 1) layoutAlex.visibility = View.VISIBLE
     }
 
     override fun onDestroy() {
         super.onDestroy()
         setPref()
         screen = 0
+        alexVisible = 0
     }
 
     private fun initRecyclerView() {
         list = Data.makeList()
-        list.sortWith(Comparator { o1, o2 -> o1.id.compareTo(o2.id) })
 
         rv.apply {
             layoutManager = GridLayoutManager(this@MainActivity, 1)

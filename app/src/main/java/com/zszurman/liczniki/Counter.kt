@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import java.lang.String.format
 
 object Data {
-    var id1 = 0
+    private const val id1 = 0
     var name1 = "Licznik wody"
     var unit1 = "m^3"
     var uP1 = 5.19f + 7.02f
@@ -14,7 +14,7 @@ object Data {
     var p11 = 0
     var day1 = 5
 
-    var id2 = 1
+    private const val id2 = 1
     var name2 = "Licznik energii nr 94"
     var unit2 = "kWh"
     var uP2 = 0.2431f + 0.1691f + 0.00139f
@@ -24,7 +24,7 @@ object Data {
     var p12 = 0
     var day2 = 5
 
-    var id3 = 2
+    private const val id3 = 2
     var name3 = "Licznik energii nr 95"
     var unit3 = "kWh"
     var uP3 = 0.2431f + 0.1691f + 0.00139f
@@ -34,7 +34,7 @@ object Data {
     var p13 = 0
     var day3 = 5
 
-    var id4 = 3
+    private const val id4 = 3
     var name4 = "Licznik Baleno"
     var unit4 = "km"
     var uP4 = 4.98f
