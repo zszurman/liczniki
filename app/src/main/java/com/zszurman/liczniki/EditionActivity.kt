@@ -55,6 +55,31 @@ class EditionActivity : AppCompatActivity() {
             Toast.makeText(this, "Nie zaktualizowano danych", Toast.LENGTH_LONG).show()
             finish()
         }
+        plusBtn1.setOnClickListener {
+            val x = upEt.text.toString().toFloat()
+            val y = if (sumEt1.text.isNullOrEmpty()) 0.0f
+            else sumEt1.text.toString().toFloat()
+            val z = x+y
+            upEt.text = z.toString()
+            sumEt1.setText("")
+        }
+        delBtn1.setOnClickListener {
+            upEt.text = getString(R.string.zero)
+            sumEt1.setText("")
+        }
+
+        plusBtn2.setOnClickListener {
+            val x = cpEt.text.toString().toFloat()
+            val y = if (sumEt2.text.isNullOrEmpty()) 0.0f
+            else sumEt2.text.toString().toFloat()
+            val z = x+y
+            cpEt.text = z.toString()
+            sumEt2.setText("")
+        }
+        delBtn2.setOnClickListener {
+            cpEt.text = getString(R.string.zero)
+            sumEt2.setText("")
+        }
     }
 
     private fun setActionBar() {

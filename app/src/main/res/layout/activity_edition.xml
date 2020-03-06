@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
+    android:layout_margin="1dp"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
     tools:context=".EditionActivity">
@@ -63,20 +63,62 @@
         android:text="@string/jednostka"
         android:textColor="@color/colorWhite" />
 
-    <EditText
-        android:id="@+id/upEt"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:autofillHints=""
-        android:inputType="numberDecimal"
-        android:textColor="@color/colorPrimary1"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        tools:ignore="LabelFor" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/upEt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:autofillHints=""
+            android:textColor="@color/colorPrimary1"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/sumEt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:autofillHints=""
+            android:inputType="numberDecimal"
+            android:textColor="@color/colorPrimary1"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            tools:ignore="LabelFor" />
+
+        <Button
+            android:id="@+id/plusBtn1"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/colorWhite"
+            android:text="@string/plus"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/delBtn1"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@color/colorWhite"
+            android:text="@string/del"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -88,20 +130,63 @@
         android:text="@string/suma2"
         android:textColor="@color/colorWhite" />
 
-    <EditText
-        android:id="@+id/cpEt"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:autofillHints=""
-        android:inputType="numberDecimal"
-        android:textColor="@color/colorPrimary1"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        tools:ignore="LabelFor" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cpEt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:autofillHints=""
+            android:textColor="@color/colorPrimary1"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/sumEt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:autofillHints=""
+            android:inputType="numberDecimal"
+            android:textColor="@color/colorPrimary1"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            tools:ignore="LabelFor" />
+
+        <Button
+            android:id="@+id/plusBtn2"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/colorWhite"
+            android:text="@string/plus"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/delBtn2"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@color/colorWhite"
+            android:text="@string/del"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            tools:ignore="ButtonStyle" />
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -166,25 +251,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="end"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnEt1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
             android:layout_margin="10dp"
+            android:background="@color/colorWhite"
             android:text="@string/noOk"
             android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
             tools:ignore="ButtonStyle" />
 
         <Button
             android:id="@+id/btnEt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
             android:layout_margin="10dp"
+            android:background="@color/colorWhite"
             android:text="@string/ok"
             android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
             tools:ignore="ButtonStyle" />
     </LinearLayout>
 
