@@ -8,13 +8,6 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
-import com.zszurman.liczniki.EditionActivity.Edit.currentIdEt
-import com.zszurman.liczniki.MainActivity.X.alexVisible
-import com.zszurman.liczniki.MainActivity.X.currentId
-import com.zszurman.liczniki.MainActivity.X.currentName
-import com.zszurman.liczniki.MainActivity.X.currentSubtitle
-import com.zszurman.liczniki.MainActivity.X.measurement
-import com.zszurman.liczniki.MainActivity.X.screen
 import kotlinx.android.synthetic.main.row.view.*
 
 class CardViewAdapter(private val context: Context) :
@@ -81,27 +74,27 @@ class DocumentViewHolder(context: Context, holder: View) : RecyclerView.ViewHold
 
     init {
         n1.setOnClickListener {
-            screen = 1
-            alexVisible = 1
-            measurement = n1.text.toString().toInt()
-            currentId = id.text.toString().toInt()
-            currentName = nam.text.toString()
-            currentSubtitle = context.getString(R.string.p0)
+            MainActivity.screen = 1
+            MainActivity.alexVisible = 1
+            MainActivity.measurement = n1.text.toString().toInt()
+            MainActivity.currentId = id.text.toString().toInt()
+            MainActivity.currentName = nam.text.toString()
+            MainActivity.currentSubtitle = context.getString(R.string.p0)
             val intent = Intent(context, MainActivity::class.java)
             startActivity(context, intent, bundleOf())
         }
         n2.setOnClickListener {
-            screen = 1
-            alexVisible = 1
-            measurement = n2.text.toString().toInt()
-            currentId = id.text.toString().toInt() + 10
-            currentName = nam.text.toString()
-            currentSubtitle = context.getString(R.string.p1)
+            MainActivity.screen = 1
+            MainActivity.alexVisible = 1
+            MainActivity.measurement = n2.text.toString().toInt()
+            MainActivity.currentId = id.text.toString().toInt() + 10
+            MainActivity.currentName = nam.text.toString()
+            MainActivity.currentSubtitle = context.getString(R.string.p1)
             val intent = Intent(context, MainActivity::class.java)
             startActivity(context, intent, bundleOf())
         }
         inscription.setOnClickListener {
-            currentIdEt = id.text.toString().toInt()
+            EditionActivity.currentIdEt = id.text.toString().toInt()
             val intent = Intent(context, EditionActivity::class.java)
             startActivity(context, intent, bundleOf())
         }
@@ -202,45 +195,9 @@ class DocumentViewHolder(context: Context, holder: View) : RecyclerView.ViewHold
                     Data.p03 = i4
                     Data.p13 = j4
                 }
-                val pref = Preference(context)
-                pref.setName1(Data.name1)
-                pref.setUnit1(Data.unit1)
-                pref.setUP1(Data.uP1)
-                pref.setCP1(Data.cP1)
-                pref.setVat1(Data.vat1)
-                pref.setDay1(Data.day1)
-                pref.setP01(Data.p01)
-                pref.setP11(Data.p11)
-
-                pref.setName2(Data.name2)
-                pref.setUnit2(Data.unit2)
-                pref.setUP2(Data.uP2)
-                pref.setCP2(Data.cP2)
-                pref.setVat2(Data.vat2)
-                pref.setDay2(Data.day2)
-                pref.setP02(Data.p02)
-                pref.setP12(Data.p12)
-
-                pref.setName3(Data.name3)
-                pref.setUnit3(Data.unit3)
-                pref.setUP3(Data.uP3)
-                pref.setCP3(Data.cP3)
-                pref.setVat3(Data.vat3)
-                pref.setDay3(Data.day3)
-                pref.setP03(Data.p03)
-                pref.setP13(Data.p13)
-
-                pref.setName4(Data.name4)
-                pref.setUnit4(Data.unit4)
-                pref.setUP4(Data.uP4)
-                pref.setCP4(Data.cP4)
-                pref.setVat4(Data.vat4)
-                pref.setDay4(Data.day4)
-                pref.setP04(Data.p04)
-                pref.setP14(Data.p14)
-
-                screen = 1
-                alexVisible = 0
+                Preference.setAllPref(context)
+                MainActivity.screen = 1
+                MainActivity.alexVisible = 0
                 val intent = Intent(context, MainActivity::class.java)
                 startActivity(context, intent, bundleOf())
             }

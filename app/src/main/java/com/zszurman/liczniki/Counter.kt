@@ -9,7 +9,7 @@ object Data {
     var unit1 = "m^3"
     var uP1 = 5.19f + 7.02f
     var cP1 = 10.4f + 3.16f
-    var vat1 = 8
+    var vat1 = 8f
     var p01 = 0
     var p11 = 0
     var day1 = 5
@@ -19,7 +19,7 @@ object Data {
     var unit2 = "kWh"
     var uP2 = 0.2431f + 0.1691f + 0.00139f
     var cP2 = 15.04f + 6.0f + 5.0f + 0.33f + 0.38f
-    var vat2 = 23
+    var vat2 = 23f
     var p02 = 0
     var p12 = 0
     var day2 = 5
@@ -29,7 +29,7 @@ object Data {
     var unit3 = "kWh"
     var uP3 = 0.2431f + 0.1691f + 0.00139f
     var cP3 = 15.04f + 6.0f + 7.5f + 0.33f + 0.38f
-    var vat3 = 23
+    var vat3 = 23f
     var p03 = 0
     var p13 = 0
     var day3 = 5
@@ -39,7 +39,7 @@ object Data {
     var unit4 = "km"
     var uP4 = 4.98f
     var cP4 = 0.0f
-    var vat4 = 0
+    var vat4 = 0f
     var p04 = 1000
     var p14 = 1100
     var day4 = 1
@@ -60,28 +60,28 @@ class Counter(
     var unit: String,
     var unitPrice: Float,
     var fixedFess: Float,
-    var vat: Int,
+    var vat: Float,
     var initialState: Int,
     var endState: Int,
     var dayMeasurement: Int
 ) {
-    private val vatOk = 1.0 + vat.toDouble() / 100
+    private val vatOk = 1 + vat.toDouble() / 100
 
     private fun calculateWear(): Int {
         return endState - initialState
     }
 
     private fun calculatePriceWear(): Double {
-        return (calculateWear().toDouble()) * unitPrice * vatOk
+        return calculateWear().toDouble() * unitPrice.toDouble() * vatOk
     }
 
     private fun currentAcount(): Double {
-        return calculatePriceWear() + (fixedFess * vatOk)
+        return calculatePriceWear() + (fixedFess.toDouble() * vatOk)
     }
 
     private fun forecastAcount(): Double {
         val par = Parameter(dayMeasurement)
-        return calculatePriceWear() * par.calculateParameter() + (fixedFess * vatOk)
+        return calculatePriceWear() * par.calculateParameter() + (fixedFess.toDouble() * vatOk)
     }
 
     @SuppressLint("DefaultLocale")

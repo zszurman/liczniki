@@ -4,6 +4,91 @@ import android.content.Context
 
 class Preference(context: Context) {
 
+    companion object AllPref{
+        fun setAllPref(context:Context){
+            val pref = Preference(context)
+
+            pref.setCC(MainActivity.cC)
+
+            pref.setName1(Data.name1)
+            pref.setUnit1(Data.unit1)
+            pref.setUP1(Data.uP1)
+            pref.setCP1(Data.cP1)
+            pref.setVat1(Data.vat1)
+            pref.setDay1(Data.day1)
+            pref.setP01(Data.p01)
+            pref.setP11(Data.p11)
+
+            pref.setName2(Data.name2)
+            pref.setUnit2(Data.unit2)
+            pref.setUP2(Data.uP2)
+            pref.setCP2(Data.cP2)
+            pref.setVat2(Data.vat2)
+            pref.setDay2(Data.day2)
+            pref.setP02(Data.p02)
+            pref.setP12(Data.p12)
+
+            pref.setName3(Data.name3)
+            pref.setUnit3(Data.unit3)
+            pref.setUP3(Data.uP3)
+            pref.setCP3(Data.cP3)
+            pref.setVat3(Data.vat3)
+            pref.setDay3(Data.day3)
+            pref.setP03(Data.p03)
+            pref.setP13(Data.p13)
+
+            pref.setName4(Data.name4)
+            pref.setUnit4(Data.unit4)
+            pref.setUP4(Data.uP4)
+            pref.setCP4(Data.cP4)
+            pref.setVat4(Data.vat4)
+            pref.setDay4(Data.day4)
+            pref.setP04(Data.p04)
+            pref.setP14(Data.p14)
+        }
+        fun getAllPref(context: Context){
+            val pref = Preference(context)
+
+            MainActivity.cC = pref.getCC()
+
+            Data.name1 = pref.getName1().toString()
+            Data.unit1 = pref.getUnit1().toString()
+            Data.uP1 = pref.getUP1()
+            Data.cP1 = pref.getCP1()
+            Data.vat1 = pref.getVat1()
+            Data.p01 = pref.getP01()
+            Data.p11 = pref.getP11()
+            Data.day1 = pref.getDay1()
+
+            Data.name2 = pref.getName2().toString()
+            Data.unit2 = pref.getUnit2().toString()
+            Data.uP2 = pref.getUP2()
+            Data.cP2 = pref.getCP2()
+            Data.vat2 = pref.getVat2()
+            Data.p02 = pref.getP02()
+            Data.p12 = pref.getP12()
+            Data.day2 = pref.getDay2()
+
+            Data.name3 = pref.getName3().toString()
+            Data.unit3 = pref.getUnit3().toString()
+            Data.uP3 = pref.getUP3()
+            Data.cP3 = pref.getCP3()
+            Data.vat3 = pref.getVat3()
+            Data.p03 = pref.getP03()
+            Data.p13 = pref.getP13()
+            Data.day3 = pref.getDay3()
+
+            Data.name4 = pref.getName4().toString()
+            Data.unit4 = pref.getUnit4().toString()
+            Data.uP4 = pref.getUP4()
+            Data.cP4 = pref.getCP4()
+            Data.vat4 = pref.getVat4()
+            Data.p04 = pref.getP04()
+            Data.p14 = pref.getP14()
+            Data.day4 = pref.getDay4()
+        }
+    }
+
     private val pref = "pref"
 
     private val name1 = "name1"
@@ -44,9 +129,7 @@ class Preference(context: Context) {
 
     private val cC = "cC"
 
-
     private val sharedPreferences = context.getSharedPreferences(pref, Context.MODE_PRIVATE)
-
 
     fun getName1(): String? {
         return sharedPreferences.getString(name1, Data.name1)
@@ -88,13 +171,13 @@ class Preference(context: Context) {
         editor.apply()
     }
 
-    fun getVat1(): Int {
-        return sharedPreferences.getInt(vat1, Data.vat1)
+    fun getVat1(): Float {
+        return sharedPreferences.getFloat(vat1, Data.vat1)
     }
 
-    fun setVat1(i: Int) {
+    fun setVat1(i: Float) {
         val editor = sharedPreferences.edit()
-        editor.putInt(vat1, i)
+        editor.putFloat(vat1, i)
         editor.apply()
     }
 
@@ -168,13 +251,13 @@ class Preference(context: Context) {
         editor.apply()
     }
 
-    fun getVat2(): Int {
-        return sharedPreferences.getInt(vat2, Data.vat2)
+    fun getVat2(): Float {
+        return sharedPreferences.getFloat(vat2, Data.vat2)
     }
 
-    fun setVat2(i: Int) {
+    fun setVat2(i: Float) {
         val editor = sharedPreferences.edit()
-        editor.putInt(vat2, i)
+        editor.putFloat(vat2, i)
         editor.apply()
     }
 
@@ -248,13 +331,13 @@ class Preference(context: Context) {
         editor.apply()
     }
 
-    fun getVat3(): Int {
-        return sharedPreferences.getInt(vat3, Data.vat3)
+    fun getVat3(): Float {
+        return sharedPreferences.getFloat(vat3, Data.vat3)
     }
 
-    fun setVat3(i: Int) {
+    fun setVat3(i: Float) {
         val editor = sharedPreferences.edit()
-        editor.putInt(vat3, i)
+        editor.putFloat(vat3, i)
         editor.apply()
     }
 
@@ -328,13 +411,13 @@ class Preference(context: Context) {
         editor.apply()
     }
 
-    fun getVat4(): Int {
-        return sharedPreferences.getInt(vat4, Data.vat4)
+    fun getVat4(): Float {
+        return sharedPreferences.getFloat(vat4, Data.vat4)
     }
 
-    fun setVat4(i: Int) {
+    fun setVat4(i: Float) {
         val editor = sharedPreferences.edit()
-        editor.putInt(vat4, i)
+        editor.putFloat(vat4, i)
         editor.apply()
     }
 
