@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.zszurman.liczniki.MainActivity.X.list
 import kotlinx.android.synthetic.main.activity_edition.*
 import java.lang.String.format
 
@@ -12,19 +13,12 @@ class EditionActivity : AppCompatActivity() {
 
     companion object Edit {
         var currentIdEt = 0
-        var a = MainActivity.list[currentIdEt].name
-        var b = MainActivity.list[currentIdEt].unit
-        var c = MainActivity.list[currentIdEt].unitPrice
-        var d = MainActivity.list[currentIdEt].fixedFess
-        var e = MainActivity.list[currentIdEt].vat
-        var f = MainActivity.list[currentIdEt].dayMeasurement
     }
 
     @SuppressLint("DefaultLocale")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edition)
-
 
         makeEditText()
         setActionBar()
@@ -44,7 +38,7 @@ class EditionActivity : AppCompatActivity() {
             val y = if (sumEt1.text.isNullOrEmpty()) 0.0f
             else sumEt1.text.toString().toFloat()
             val z = x + y
-            upEt.text = z.toString()
+            upEt.text = format("%.6f", z)
             sumEt1.setText("")
         }
         delBtn1.setOnClickListener {
@@ -56,7 +50,7 @@ class EditionActivity : AppCompatActivity() {
             val y = if (sumEt2.text.isNullOrEmpty()) 0.0f
             else sumEt2.text.toString().toFloat()
             val z = x + y
-            cpEt.text = z.toString()
+            cpEt.text = format("%.2f", z)
             sumEt2.setText("")
         }
         delBtn2.setOnClickListener {
@@ -75,12 +69,12 @@ class EditionActivity : AppCompatActivity() {
     private fun makeEditText() {
         val x = "Licznik nr " + (currentIdEt + 1).toString()
         idEt.text = x
-        nameEt.setText(a)
-        unitEt.setText(b)
-        upEt.text = c.toString()
-        cpEt.text = format("%.2f", d)
-        vatEt.setText(format("%.1f", e))
-        dayEt.setText(f.toString())
+        nameEt.setText(list[currentIdEt].name)
+        unitEt.setText(list[currentIdEt].unit)
+        upEt.text = format("%.6f", list[currentIdEt].unitPrice)
+        cpEt.text = format("%.2f", list[currentIdEt].fixedFess)
+        vatEt.setText(format("%.1f", list[currentIdEt].vat))
+        dayEt.setText(list[currentIdEt].dayMeasurement.toString())
     }
 
     private fun updateData() {
