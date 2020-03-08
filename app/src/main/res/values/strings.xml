@@ -22,5 +22,9 @@
     <string name="zero">0.0</string>
     <string name="plus">+</string>
     <string name="del">del</string>
+    <string name="minus">-</string>
+    <string name="plusVat">+ 0.1</string>
+    <string name="_1">-1</string>
+    <string name="plus1">+1</string>
 
 </resources>

@@ -2,11 +2,14 @@ package com.zszurman.liczniki
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
+import android.widget.SeekBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.zszurman.liczniki.MainActivity.X.list
 import kotlinx.android.synthetic.main.activity_edition.*
 import java.lang.String.format
+import kotlin.math.roundToInt
 
 @Suppress("DEPRECATION")
 class EditionActivity : AppCompatActivity() {
@@ -57,6 +60,39 @@ class EditionActivity : AppCompatActivity() {
             cpEt.text = getString(R.string.zero)
             sumEt2.setText("")
         }
+        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
+                vatEt.text = i.toString()
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                plusVatBtn.visibility = View.VISIBLE
+            }
+        })
+        plusVatBtn.setOnClickListener {
+            var x = vatEt.text.toString().toFloat()
+            if (x <= 99.9f) x += 0.1f
+            vatEt.text = format("%.1f", x)
+            if (x > 99.9f) plusVatBtn.visibility = View.INVISIBLE
+        }
+        plusVBtn3.setOnClickListener {
+            minusBtn3.visibility = View.VISIBLE
+
+            var x = dayEt.text.toString().toInt()
+            if (x < 28) x += 1
+            dayEt.text = x.toString()
+            if (x == 28) plusVBtn3.visibility = View.INVISIBLE
+        }
+        minusBtn3.setOnClickListener {
+            plusVBtn3.visibility = View.VISIBLE
+            var x = dayEt.text.toString().toInt()
+            if (x > 1) x -= 1
+            dayEt.text = x.toString()
+            if (x == 1) minusBtn3.visibility = View.INVISIBLE
+        }
     }
 
     private fun setActionBar() {
@@ -67,14 +103,16 @@ class EditionActivity : AppCompatActivity() {
 
     @SuppressLint("DefaultLocale")
     private fun makeEditText() {
+        plusVatBtn.visibility = View.INVISIBLE
         val x = "Licznik nr " + (currentIdEt + 1).toString()
         idEt.text = x
         nameEt.setText(list[currentIdEt].name)
         unitEt.setText(list[currentIdEt].unit)
-        upEt.text = format("%.6f", list[currentIdEt].unitPrice)
+        upEt.text = list[currentIdEt].unitPrice.toString()
         cpEt.text = format("%.2f", list[currentIdEt].fixedFess)
-        vatEt.setText(format("%.1f", list[currentIdEt].vat))
-        dayEt.setText(list[currentIdEt].dayMeasurement.toString())
+        vatEt.text = format("%.1f", list[currentIdEt].vat)
+        seekBar.progress = vatEt.text.toString().toFloat().roundToInt()
+        dayEt.text = list[currentIdEt].dayMeasurement.toString()
     }
 
     private fun updateData() {
