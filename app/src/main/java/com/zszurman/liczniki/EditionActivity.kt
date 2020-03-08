@@ -2,13 +2,15 @@ package com.zszurman.liczniki
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.SeekBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.zszurman.liczniki.MainActivity.X.list
 import kotlinx.android.synthetic.main.activity_edition.*
 import java.lang.String.format
+import kotlin.math.roundToInt
 
-@Suppress("DEPRECATION")
+@Suppress("DEPRECATION", "PLUGIN_WARNING")
 class EditionActivity : AppCompatActivity() {
 
     companion object Edit {
@@ -16,6 +18,7 @@ class EditionActivity : AppCompatActivity() {
     }
 
     @SuppressLint("DefaultLocale")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edition)
@@ -38,7 +41,7 @@ class EditionActivity : AppCompatActivity() {
             val y = if (sumEt1.text.isNullOrEmpty()) 0.0f
             else sumEt1.text.toString().toFloat()
             val z = x + y
-            upEt.text = format("%.6f", z)
+            upEt.text = z.toString()
             sumEt1.setText("")
         }
         delBtn1.setOnClickListener {
@@ -57,6 +60,32 @@ class EditionActivity : AppCompatActivity() {
             cpEt.text = getString(R.string.zero)
             sumEt2.setText("")
         }
+        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
+                vatEt.text = i.toString()
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+            }
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+            }
+        })
+       /* plusVatBtn.setOnClickListener {
+            var x = vatEt.text.toString().toFloat()
+            if (x < 99.9) x += 0.1f
+            vatEt.text = x.toString()
+        }
+        */
+        plusBtn3.setOnClickListener {
+
+            var x = dayEt.text.toString().toInt()
+            if (x < 28) x += 1
+            dayEt.text = x.toString()
+        }
+        minusBtn3.setOnClickListener {
+            var x = dayEt.text.toString().toInt()
+            if (x > 1) x -= 1
+            dayEt.text = x.toString()
+        }
     }
 
     private fun setActionBar() {
@@ -71,10 +100,11 @@ class EditionActivity : AppCompatActivity() {
         idEt.text = x
         nameEt.setText(list[currentIdEt].name)
         unitEt.setText(list[currentIdEt].unit)
-        upEt.text = format("%.6f", list[currentIdEt].unitPrice)
+        upEt.text = list[currentIdEt].unitPrice.toString()
         cpEt.text = format("%.2f", list[currentIdEt].fixedFess)
-        vatEt.setText(format("%.1f", list[currentIdEt].vat))
-        dayEt.setText(list[currentIdEt].dayMeasurement.toString())
+        vatEt.text = format("%.1f", list[currentIdEt].vat)
+        seekBar.progress = vatEt.text.toString().toFloat().roundToInt()
+        dayEt.text = list[currentIdEt].dayMeasurement.toString()
     }
 
     private fun updateData() {
@@ -170,3 +200,5 @@ class EditionActivity : AppCompatActivity() {
         }
     }
 }
+
+

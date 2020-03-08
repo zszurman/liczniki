@@ -10,9 +10,13 @@
     <string name="nazwa_licznika">Nazwa licznika</string>
     <string name="vat">Podatek VAT w % (0 – 100, jeżeli nie ma wpisz 0)</string>
     <string name="day">Dzień miesiąca odczytu początkowego (1–28)</string>
-    <string name="suma1">Suma wszystkich opłat stałych licznika, która nie będzie pomnożona przez zużycie (dodaj te liczby korzystając z kalkulatorka) [zł.]</string>
-    <string name="suma2">Suma wszystkich cen jednostkowych, która pomnożona będzie przez zużycie (dodaj te liczby korzystając z kalkulatorka) [zł.]</string>
-    <string name="uwaga">Uwaga: odczyty wprowadzaj klikając je na głównym ekranie. Odczyt początkowy znajduje się po lewej stronie a odczyt aktualny po prawej.</string>
+    <string name="suma1">Suma wszystkich opłat stałych licznika, która nie będzie
+        pomnożona przez zużycie (dodaj te liczby korzystając z kalkulatorka) [zł.]</string>
+    <string name="suma2">Suma wszystkich cen jednostkowych, która pomnożona
+        będzie przez zużycie (dodaj te liczby korzystając z kalkulatorka) [zł.]</string>
+    <string name="uwaga">Uwaga: odczyty wprowadzaj klikając je na głównym ekranie.
+        Odczyt początkowy znajduje się po lewej stronie a odczyt aktualny po prawej.
+    </string>
     <string name="noOk">Nie aktualizuj</string>
     <string name="menu">Ilość liczników</string>
     <string name="title_message">Witam Cię Serdecznie :)</string>
@@ -22,5 +26,7 @@
     <string name="zero">0.0</string>
     <string name="plus">+</string>
     <string name="del">del</string>
+    <string name="minus">-</string>
+    <string name="plus01">+ 0.1</string>
 
 </resources>

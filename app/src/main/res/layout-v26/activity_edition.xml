@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,26 +12,33 @@
         android:orientation="vertical"
         tools:context=".EditionActivity">
 
-
         <TextView
             android:id="@+id/idEt"
             android:layout_width="0dp"
             android:layout_height="0dp" />
 
         <EditText
-
             android:id="@+id/nameEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:autofillHints=""
+            android:inputType="textMultiLine"
             android:textColor="@color/colorPrimary1"
             android:textSize="18sp"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
             android:text="@string/nazwa_licznika"
             android:textColor="@color/colorWhite" />
 
@@ -40,225 +46,283 @@
             android:id="@+id/unitEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:autofillHints=""
+            android:inputType="textMultiLine"
             android:textColor="@color/colorPrimary1"
             android:textSize="18sp"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
             android:text="@string/jednostka"
             android:textColor="@color/colorWhite" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/upEt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:autofillHints=""
                 android:textColor="@color/colorPrimary1"
                 android:textSize="18sp"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                tools:ignore="LabelFor" />
 
             <EditText
                 android:id="@+id/sumEt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:autofillHints=""
                 android:inputType="numberDecimal|textMultiLine"
                 android:textColor="@color/colorPrimary1"
                 android:textSize="18sp"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                tools:ignore="LabelFor" />
 
             <Button
                 android:id="@+id/plusBtn1"
                 android:layout_width="35dp"
-                android:layout_height="25dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@color/colorWhite"
                 android:text="@string/plus"
                 android:textColor="@color/colorPrimary"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/delBtn1"
                 android:layout_width="35dp"
-                android:layout_height="25dp"
+                android:layout_height="35dp"
                 android:background="@color/colorWhite"
                 android:text="@string/del"
                 android:textColor="@color/colorPrimary"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="ButtonStyle" />
         </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
             android:text="@string/suma2"
             android:textColor="@color/colorWhite" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/cpEt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:autofillHints=""
                 android:textColor="@color/colorPrimary1"
                 android:textSize="18sp"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                tools:ignore="LabelFor" />
 
             <EditText
                 android:id="@+id/sumEt2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:autofillHints=""
                 android:inputType="numberDecimal|textMultiLine"
                 android:textColor="@color/colorPrimary1"
                 android:textSize="18sp"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                tools:ignore="LabelFor" />
 
             <Button
                 android:id="@+id/plusBtn2"
                 android:layout_width="35dp"
-                android:layout_height="25dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@color/colorWhite"
                 android:text="@string/plus"
                 android:textColor="@color/colorPrimary"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/delBtn2"
                 android:layout_width="35dp"
-                android:layout_height="25dp"
+                android:layout_height="35dp"
                 android:background="@color/colorWhite"
                 android:text="@string/del"
                 android:textColor="@color/colorPrimary"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="ButtonStyle" />
 
         </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
             android:text="@string/suma1"
             android:textColor="@color/colorWhite" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/vatEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/vatEt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary1"
-                android:textSize="18sp"
-                android:textStyle="italic" />
-
-            <Button
-                android:id="@+id/plusVatBtn"
-                android:layout_width="35dp"
-                android:layout_height="25dp"
-                android:background="@color/colorWhite"
-                android:text="@string/plus"
-                android:textColor="@color/colorPrimary"
-                android:textSize="14sp" />
-
-        </LinearLayout>
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:autofillHints=""
+            android:textColor="@color/colorPrimary1"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            tools:ignore="LabelFor" />
 
         <SeekBar
-            android:id="@+id/seekBar1"
+            android:id="@+id/seekBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:max="100" />
+            android:max="100"
+            android:min="0" />
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
             android:text="@string/vat"
             android:textColor="@color/colorWhite" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/minusBtn3"
                 android:layout_width="35dp"
-                android:layout_height="25dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@color/colorWhite"
                 android:text="@string/minus"
                 android:textColor="@color/colorPrimary"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="ButtonStyle" />
 
 
             <TextView
                 android:id="@+id/dayEt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:autofillHints=""
                 android:textColor="@color/colorPrimary1"
                 android:textSize="18sp"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                tools:ignore="LabelFor" />
 
             <Button
                 android:id="@+id/plusBtn3"
                 android:layout_width="35dp"
-                android:layout_height="25dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:background="@color/colorWhite"
                 android:text="@string/plus"
                 android:textColor="@color/colorPrimary"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="ButtonStyle" />
+
 
         </LinearLayout>
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
             android:text="@string/day"
             android:textColor="@color/colorWhite" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnEt1"
                 android:layout_width="140dp"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_margin="10dp"
                 android:background="@color/colorWhite"
                 android:text="@string/noOk"
                 android:textColor="@color/colorPrimary"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btnEt"
                 android:layout_width="140dp"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
                 android:background="@color/colorWhite"
                 android:text="@string/ok"
                 android:textColor="@color/colorPrimary"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="ButtonStyle" />
         </LinearLayout>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -268,5 +332,4 @@
             android:textColor="@color/colorWhite" />
 
     </LinearLayout>
-
 </ScrollView>
