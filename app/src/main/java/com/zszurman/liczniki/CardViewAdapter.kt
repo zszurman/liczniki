@@ -41,6 +41,7 @@ class CardViewAdapter(private val context: Context) :
 
 class DocumentViewHolder(context: Context, holder: View) : RecyclerView.ViewHolder(holder) {
 
+    private val edBt = holder.editBtn
     private val upTv = holder.tvUp
     private val upBt = holder.upBtn
     private val inscription = holder.tv
@@ -93,7 +94,7 @@ class DocumentViewHolder(context: Context, holder: View) : RecyclerView.ViewHold
             val intent = Intent(context, MainActivity::class.java)
             startActivity(context, intent, bundleOf())
         }
-        inscription.setOnClickListener {
+        edBt.setOnClickListener {
             EditionActivity.currentIdEt = id.text.toString().toInt()
             val intent = Intent(context, EditionActivity::class.java)
             startActivity(context, intent, bundleOf())

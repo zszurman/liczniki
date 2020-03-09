@@ -8,7 +8,7 @@
     <string name="p1">Podaj odczyt aktualny</string>
     <string name="jednostka">Jednostka miary licznika (np kW, m^3, km, itd.)</string>
     <string name="nazwa_licznika">Nazwa licznika</string>
-    <string name="vat">Podatek VAT w % (0 – 100, jeżeli nie ma wpisz 0)</string>
+    <string name="vat">Podatek VAT w % (0 – 100)</string>
     <string name="day">Dzień miesiąca odczytu początkowego (1–28)</string>
     <string name="suma1">Suma wszystkich opłat stałych licznika, która nie będzie pomnożona przez zużycie (dodaj te liczby korzystając z kalkulatorka) [zł.]</string>
     <string name="suma2">Suma wszystkich cen jednostkowych, która pomnożona będzie przez zużycie (dodaj te liczby korzystając z kalkulatorka) [zł.]</string>
@@ -29,5 +29,6 @@
     <string name="wpisz">Wpisz cyfrę</string>
     <string name="zero5">0.00000</string>
     <string name="zero2">0.00</string>
+    <string name="edytuj">Edytuj</string>
 
 </resources>

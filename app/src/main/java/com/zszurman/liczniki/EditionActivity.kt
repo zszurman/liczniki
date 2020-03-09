@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.zszurman.liczniki.MainActivity.X.list
 import kotlinx.android.synthetic.main.activity_edition.*
-import java.lang.String.format
 import kotlin.math.roundToInt
 
 @Suppress("DEPRECATION")
