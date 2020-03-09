@@ -26,5 +26,8 @@
     <string name="plusVat">+ 0.1</string>
     <string name="_1">-1</string>
     <string name="plus1">+1</string>
+    <string name="wpisz">Wpisz cyfrę</string>
+    <string name="zero5">0.00000</string>
+    <string name="zero2">0.00</string>
 
 </resources>

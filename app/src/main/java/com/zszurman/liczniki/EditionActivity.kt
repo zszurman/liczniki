@@ -2,7 +2,6 @@ package com.zszurman.liczniki
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.View
 import android.widget.SeekBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -26,10 +25,22 @@ class EditionActivity : AppCompatActivity() {
         makeEditText()
         setActionBar()
         btnEt.setOnClickListener {
-            makeToast()
-            if (condition()) {
-                updateData()
-                finish()
+            when {
+                nameEt.text.toString().isEmpty() -> Toast.makeText(
+                    this,
+                    "Wpisz nazwę licznika",
+                    Toast.LENGTH_LONG
+                ).show()
+                unitEt.text.toString().isEmpty() -> Toast.makeText(
+                    this,
+                    "Wpisz jednostkę miary licznika",
+                    Toast.LENGTH_LONG
+                ).show()
+                else -> {
+                    updateData()
+                    Toast.makeText(this, "Dane zaktualizowano", Toast.LENGTH_LONG).show()
+                    finish()
+                }
             }
         }
         btnEt1.setOnClickListener {
@@ -37,27 +48,30 @@ class EditionActivity : AppCompatActivity() {
             finish()
         }
         plusBtn1.setOnClickListener {
-            val x = upEt.text.toString().toFloat()
-            val y = if (sumEt1.text.isNullOrEmpty()) 0.0f
-            else sumEt1.text.toString().toFloat()
+
+            val x = (upEt.text.toString().toDouble() * 100000).roundToInt()
+            val y = if (sumEt1.text.isNullOrEmpty()) 0
+            else (sumEt1.text.toString().toDouble() * 100000).roundToInt()
             val z = x + y
-            upEt.text = format("%.6f", z)
+            val z1 = (z.toDouble()) / 100000
+            upEt.text = z1.toString()
             sumEt1.setText("")
         }
         delBtn1.setOnClickListener {
-            upEt.text = getString(R.string.zero)
+            upEt.text = getString(R.string.zero5)
             sumEt1.setText("")
         }
         plusBtn2.setOnClickListener {
-            val x = cpEt.text.toString().toFloat()
-            val y = if (sumEt2.text.isNullOrEmpty()) 0.0f
-            else sumEt2.text.toString().toFloat()
+            val x = (cpEt.text.toString().toDouble() * 100).roundToInt()
+            val y = if (sumEt2.text.isNullOrEmpty()) 0
+            else (sumEt2.text.toString().toDouble() * 100).roundToInt()
             val z = x + y
-            cpEt.text = format("%.2f", z)
+            val z1 = (z.toDouble()) / 100
+            cpEt.text = z1.toString()
             sumEt2.setText("")
         }
         delBtn2.setOnClickListener {
-            cpEt.text = getString(R.string.zero)
+            cpEt.text = getString(R.string.zero2)
             sumEt2.setText("")
         }
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
@@ -69,30 +83,21 @@ class EditionActivity : AppCompatActivity() {
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar) {
-                plusVatBtn.visibility = View.VISIBLE
+
             }
         })
-        plusVatBtn.setOnClickListener {
-            var x = vatEt.text.toString().toFloat()
-            if (x <= 99.9f) x += 0.1f
-            vatEt.text = format("%.1f", x)
-            if (x > 99.9f) plusVatBtn.visibility = View.INVISIBLE
-        }
-        plusVBtn3.setOnClickListener {
-            minusBtn3.visibility = View.VISIBLE
+        seekBar1.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
+                dayEt.text = i.toString()
+            }
 
-            var x = dayEt.text.toString().toInt()
-            if (x < 28) x += 1
-            dayEt.text = x.toString()
-            if (x == 28) plusVBtn3.visibility = View.INVISIBLE
-        }
-        minusBtn3.setOnClickListener {
-            plusVBtn3.visibility = View.VISIBLE
-            var x = dayEt.text.toString().toInt()
-            if (x > 1) x -= 1
-            dayEt.text = x.toString()
-            if (x == 1) minusBtn3.visibility = View.INVISIBLE
-        }
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+
+            }
+        })
     }
 
     private fun setActionBar() {
@@ -103,108 +108,70 @@ class EditionActivity : AppCompatActivity() {
 
     @SuppressLint("DefaultLocale")
     private fun makeEditText() {
-        plusVatBtn.visibility = View.INVISIBLE
+        seekBar.progress = list[currentIdEt].vat
+        seekBar1.progress = list[currentIdEt].dayMeasurement
         val x = "Licznik nr " + (currentIdEt + 1).toString()
         idEt.text = x
         nameEt.setText(list[currentIdEt].name)
         unitEt.setText(list[currentIdEt].unit)
-        upEt.text = list[currentIdEt].unitPrice.toString()
-        cpEt.text = format("%.2f", list[currentIdEt].fixedFess)
-        vatEt.text = format("%.1f", list[currentIdEt].vat)
-        seekBar.progress = vatEt.text.toString().toFloat().roundToInt()
+
+        val x1 = list[currentIdEt].unitPrice.toDouble() / 100000
+        upEt.text = x1.toString()
+
+        val x2 = list[currentIdEt].fixedFess.toDouble() / 100
+        cpEt.text = x2.toString()
+
+        vatEt.text = list[currentIdEt].vat.toString()
         dayEt.text = list[currentIdEt].dayMeasurement.toString()
     }
 
     private fun updateData() {
+        val a = nameEt.text.toString()
+        val b = unitEt.text.toString()
+
+        val x1 = upEt.text.toString().toDouble() * 100000
+        val x = x1.roundToInt()
+
+        val y1 = cpEt.text.toString().toDouble() * 100
+        val y = y1.roundToInt()
+
+        val c = vatEt.text.toString().toInt()
+        val d = dayEt.text.toString().toInt()
+
         when (currentIdEt) {
             0 -> {
-                Data.name1 = nameEt.text.toString()
-                Data.unit1 = unitEt.text.toString()
-                Data.uP1 = upEt.text.toString().toFloat()
-                Data.cP1 = cpEt.text.toString().toFloat()
-                Data.vat1 = vatEt.text.toString().toFloat()
-                Data.day1 = dayEt.text.toString().toInt()
+                Data.name1 = a
+                Data.unit1 = b
+                Data.uP1 = x
+                Data.cP1 = y
+                Data.vat1 = c
+                Data.day1 = d
             }
             1 -> {
-                Data.name2 = nameEt.text.toString()
-                Data.unit2 = unitEt.text.toString()
-                Data.uP2 = upEt.text.toString().toFloat()
-                Data.cP2 = cpEt.text.toString().toFloat()
-                Data.vat2 = vatEt.text.toString().toFloat()
-                Data.day2 = dayEt.text.toString().toInt()
+                Data.name2 = a
+                Data.unit2 = b
+                Data.uP2 = x
+                Data.cP2 = y
+                Data.vat2 = c
+                Data.day2 = d
             }
             2 -> {
-                Data.name3 = nameEt.text.toString()
-                Data.unit3 = unitEt.text.toString()
-                Data.uP3 = upEt.text.toString().toFloat()
-                Data.cP3 = cpEt.text.toString().toFloat()
-                Data.vat3 = vatEt.text.toString().toFloat()
-                Data.day3 = dayEt.text.toString().toInt()
+                Data.name3 = a
+                Data.unit3 = b
+                Data.uP3 = x
+                Data.cP3 = y
+                Data.vat3 = c
+                Data.day3 = d
             }
             3 -> {
-                Data.name4 = nameEt.text.toString()
-                Data.unit4 = unitEt.text.toString()
-                Data.uP4 = upEt.text.toString().toFloat()
-                Data.cP4 = cpEt.text.toString().toFloat()
-                Data.vat4 = vatEt.text.toString().toFloat()
-                Data.day4 = dayEt.text.toString().toInt()
+                Data.name4 = a
+                Data.unit4 = b
+                Data.uP4 = x
+                Data.cP4 = y
+                Data.vat4 = c
+                Data.day4 = d
             }
         }
         Preference.setAllPref(this)
-    }
-
-    private fun condition1(): Boolean {
-        return !nameEt.text.isNullOrEmpty() &&
-                !unitEt.text.isNullOrEmpty() &&
-                !upEt.text.isNullOrEmpty() &&
-                !cpEt.text.isNullOrEmpty() &&
-                !vatEt.text.isNullOrEmpty() &&
-                !dayEt.text.isNullOrEmpty()
-    }
-
-    private fun condition(): Boolean {
-        return if (condition1()) {
-            vatEt.text.toString().toFloat() in 0..100 &&
-                    dayEt.text.toString().toInt() in 1..28
-        } else {
-            false
-        }
-    }
-
-    private fun makeToast() {
-        when {
-            nameEt.text.isNullOrEmpty() -> {
-                Toast.makeText(this, "Wpisz nazwę licznika", Toast.LENGTH_LONG).show()
-            }
-            unitEt.text.isNullOrEmpty() -> {
-                Toast.makeText(this, "Wpisz jednostkę pomiarową licznika", Toast.LENGTH_LONG).show()
-            }
-            upEt.text.isNullOrEmpty() -> {
-                Toast.makeText(this, "Wpisz sumę cen jednostkowych", Toast.LENGTH_LONG).show()
-            }
-            cpEt.text.isNullOrEmpty() -> {
-                Toast.makeText(this, "Wpisz sumę opłat stałych", Toast.LENGTH_LONG).show()
-            }
-            vatEt.text.isNullOrEmpty() -> {
-                Toast.makeText(this, "Wpisz podatek Vat", Toast.LENGTH_LONG).show()
-            }
-            dayEt.text.isNullOrEmpty() -> {
-                Toast.makeText(this, "Wpisz dzień miesiąca odczytu początkowego", Toast.LENGTH_LONG)
-                    .show()
-            }
-            vatEt.text.toString().toFloat() !in 0..100 -> {
-                Toast.makeText(this, "Vat: wprowadź wartość od 0 do 100", Toast.LENGTH_LONG).show()
-            }
-            dayEt.text.toString().toInt() !in 1..28 -> {
-                Toast.makeText(
-                    this,
-                    "Dzień miesiąca wykonywania pomiaru początkowego: wprowadź wartość od 1 do 28",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-            else -> {
-                Toast.makeText(this, "Dane zaktualizowano", Toast.LENGTH_LONG).show()
-            }
-        }
     }
 }

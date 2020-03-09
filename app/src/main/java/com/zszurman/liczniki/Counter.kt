@@ -7,9 +7,9 @@ object Data {
     private const val id1 = 0
     var name1 = "Licznik wody"
     var unit1 = "m^3"
-    var uP1 = 5.19f + 7.02f
-    var cP1 = 10.4f + 3.16f
-    var vat1 = 8f
+    var uP1 = 519000 + 702000
+    var cP1 = 1040 + 316
+    var vat1 = 8
     var p01 = 0
     var p11 = 0
     var day1 = 5
@@ -17,9 +17,9 @@ object Data {
     private const val id2 = 1
     var name2 = "Licznik energii nr 94"
     var unit2 = "kWh"
-    var uP2 = 0.2431f + 0.1691f + 0.00139f
-    var cP2 = 15.04f + 6.0f + 5.0f + 0.33f + 0.38f
-    var vat2 = 23f
+    var uP2 = 24310 + 16910 + 139
+    var cP2 = 1504 + 600 + 500 + 33 + 38
+    var vat2 = 23
     var p02 = 0
     var p12 = 0
     var day2 = 5
@@ -27,9 +27,9 @@ object Data {
     private const val id3 = 2
     var name3 = "Licznik energii nr 95"
     var unit3 = "kWh"
-    var uP3 = 0.2431f + 0.1691f + 0.00139f
-    var cP3 = 15.04f + 6.0f + 7.5f + 0.33f + 0.38f
-    var vat3 = 23f
+    var uP3 = 24310 + 16910 + 139
+    var cP3 = 1504 + 600 + 750 + 33 + 38
+    var vat3 = 23
     var p03 = 0
     var p13 = 0
     var day3 = 5
@@ -37,9 +37,9 @@ object Data {
     private const val id4 = 3
     var name4 = "Licznik Baleno"
     var unit4 = "km"
-    var uP4 = 4.98f
-    var cP4 = 0.0f
-    var vat4 = 0f
+    var uP4 = 498
+    var cP4 = 0
+    var vat4 = 0
     var p04 = 1000
     var p14 = 1100
     var day4 = 1
@@ -58,9 +58,9 @@ class Counter(
     var id: Int,
     var name: String,
     var unit: String,
-    var unitPrice: Float,
-    var fixedFess: Float,
-    var vat: Float,
+    var unitPrice: Int,
+    var fixedFess: Int,
+    var vat: Int,
     var initialState: Int,
     var endState: Int,
     var dayMeasurement: Int
@@ -72,16 +72,16 @@ class Counter(
     }
 
     private fun calculatePriceWear(): Double {
-        return calculateWear().toDouble() * unitPrice.toDouble() * vatOk
+        return calculateWear().toDouble() * unitPrice.toDouble() * vatOk / 100000
     }
 
     private fun currentAcount(): Double {
-        return calculatePriceWear() + (fixedFess.toDouble() * vatOk)
+        return calculatePriceWear() + (fixedFess.toDouble() * vatOk / 100)
     }
 
     private fun forecastAcount(): Double {
         val par = Parameter(dayMeasurement)
-        return calculatePriceWear() * par.calculateParameter() + (fixedFess.toDouble() * vatOk)
+        return calculatePriceWear() * par.calculateParameter() + (fixedFess.toDouble() * vatOk / 100)
     }
 
     @SuppressLint("DefaultLocale")

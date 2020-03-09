@@ -1,6 +1,7 @@
 package com.zszurman.liczniki
 
 import android.content.Context
+import kotlin.math.roundToInt
 
 class Preference(context: Context) {
 
@@ -151,33 +152,33 @@ class Preference(context: Context) {
         editor.apply()
     }
 
-    fun getUP1(): Float {
-        return sharedPreferences.getFloat(uP1, Data.uP1)
+    fun getUP1(): Int {
+        return sharedPreferences.getInt(uP1, Data.uP1)
     }
 
-    fun setUP1(i: Float) {
+    fun setUP1(i: Int) {
         val editor = sharedPreferences.edit()
-        editor.putFloat(uP1, i)
+        editor.putInt(uP1, i)
         editor.apply()
     }
 
-    fun getCP1(): Float {
-        return sharedPreferences.getFloat(cP1, Data.cP1)
+    fun getCP1(): Int {
+        return sharedPreferences.getInt(cP1, Data.cP1)
     }
 
-    fun setCP1(i: Float) {
+    fun setCP1(i: Int) {
         val editor = sharedPreferences.edit()
-        editor.putFloat(cP1, i)
+        editor.putInt(cP1, i)
         editor.apply()
     }
 
-    fun getVat1(): Float {
-        return sharedPreferences.getFloat(vat1, Data.vat1)
+    fun getVat1(): Int {
+        return sharedPreferences.getInt(vat1, Data.vat1)
     }
 
-    fun setVat1(i: Float) {
+    fun setVat1(i: Int) {
         val editor = sharedPreferences.edit()
-        editor.putFloat(vat1, i)
+        editor.putInt(vat1, i)
         editor.apply()
     }
 
@@ -231,33 +232,33 @@ class Preference(context: Context) {
         editor.apply()
     }
 
-    fun getUP2(): Float {
-        return sharedPreferences.getFloat(uP2, Data.uP2)
+    fun getUP2(): Int {
+        return sharedPreferences.getInt(uP2, Data.uP2)
     }
 
-    fun setUP2(i: Float) {
+    fun setUP2(i: Int) {
         val editor = sharedPreferences.edit()
-        editor.putFloat(uP2, i)
+        editor.putInt(uP2, i)
         editor.apply()
     }
 
-    fun getCP2(): Float {
-        return sharedPreferences.getFloat(cP2, Data.cP2)
+    fun getCP2(): Int {
+        return sharedPreferences.getInt(cP2, Data.cP2)
     }
 
-    fun setCP2(i: Float) {
+    fun setCP2(i: Int) {
         val editor = sharedPreferences.edit()
-        editor.putFloat(cP2, i)
+        editor.putInt(cP2, i)
         editor.apply()
     }
 
-    fun getVat2(): Float {
-        return sharedPreferences.getFloat(vat2, Data.vat2)
+    fun getVat2(): Int {
+        return sharedPreferences.getInt(vat2, Data.vat2)
     }
 
-    fun setVat2(i: Float) {
+    fun setVat2(i: Int) {
         val editor = sharedPreferences.edit()
-        editor.putFloat(vat2, i)
+        editor.putInt(vat2, i)
         editor.apply()
     }
 
@@ -311,33 +312,33 @@ class Preference(context: Context) {
         editor.apply()
     }
 
-    fun getUP3(): Float {
-        return sharedPreferences.getFloat(uP3, Data.uP3)
+    fun getUP3(): Int {
+        return sharedPreferences.getInt(uP3, Data.uP3)
     }
 
-    fun setUP3(i: Float) {
+    fun setUP3(i: Int) {
         val editor = sharedPreferences.edit()
-        editor.putFloat(uP3, i)
+        editor.putInt(uP3, i)
         editor.apply()
     }
 
-    fun getCP3(): Float {
-        return sharedPreferences.getFloat(cP3, Data.cP3)
+    fun getCP3(): Int {
+        return sharedPreferences.getInt(cP3, Data.cP3)
     }
 
-    fun setCP3(i: Float) {
+    fun setCP3(i: Int) {
         val editor = sharedPreferences.edit()
-        editor.putFloat(cP3, i)
+        editor.putInt(cP3, i)
         editor.apply()
     }
 
-    fun getVat3(): Float {
-        return sharedPreferences.getFloat(vat3, Data.vat3)
+    fun getVat3(): Int {
+        return sharedPreferences.getInt(vat3, Data.vat3)
     }
 
-    fun setVat3(i: Float) {
+    fun setVat3(i: Int) {
         val editor = sharedPreferences.edit()
-        editor.putFloat(vat3, i)
+        editor.putInt(vat3, i)
         editor.apply()
     }
 
@@ -391,33 +392,33 @@ class Preference(context: Context) {
         editor.apply()
     }
 
-    fun getUP4(): Float {
-        return sharedPreferences.getFloat(uP4, Data.uP4)
+    fun getUP4(): Int {
+        return sharedPreferences.getInt(uP4, Data.uP4)
     }
 
-    fun setUP4(i: Float) {
+    fun setUP4(i: Int) {
         val editor = sharedPreferences.edit()
-        editor.putFloat(uP4, i)
+        editor.putInt(uP4, i)
         editor.apply()
     }
 
-    fun getCP4(): Float {
-        return sharedPreferences.getFloat(cP4, Data.cP4)
+    fun getCP4(): Int {
+        return sharedPreferences.getInt(cP4, Data.cP4)
     }
 
-    fun setCP4(i: Float) {
+    fun setCP4(i: Int) {
         val editor = sharedPreferences.edit()
-        editor.putFloat(cP4, i)
+        editor.putInt(cP4, i)
         editor.apply()
     }
 
-    fun getVat4(): Float {
-        return sharedPreferences.getFloat(vat4, Data.vat4)
+    fun getVat4(): Int {
+        return sharedPreferences.getInt(vat4, Data.vat4)
     }
 
-    fun setVat4(i: Float) {
+    fun setVat4(i: Int) {
         val editor = sharedPreferences.edit()
-        editor.putFloat(vat4, i)
+        editor.putInt(vat4, i)
         editor.apply()
     }
 

@@ -16,15 +16,13 @@
             android:id="@+id/idEt"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginStart="10dp" />
 
         <EditText
             android:id="@+id/nameEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
             android:importantForAutofill="no"
             android:inputType="textMultiLine"
             android:textColor="@color/colorPrimary1"
@@ -36,7 +34,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
             android:text="@string/nazwa_licznika"
             android:textColor="@color/colorWhite" />
@@ -46,7 +43,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
             android:importantForAutofill="no"
             android:inputType="textMultiLine"
             android:textColor="@color/colorPrimary1"
@@ -58,7 +54,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
             android:text="@string/jednostka"
             android:textColor="@color/colorWhite" />
@@ -67,7 +62,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -75,7 +69,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
                 android:textColor="@color/colorPrimary1"
                 android:textSize="18sp"
                 android:textStyle="italic" />
@@ -85,9 +78,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
                 android:importantForAutofill="no"
                 android:inputType="numberDecimal"
+                android:hint="@string/wpisz"
                 android:textColor="@color/colorPrimary1"
                 android:textSize="18sp"
                 android:textStyle="italic"
@@ -97,8 +90,7 @@
                 android:id="@+id/plusBtn1"
                 android:layout_width="35dp"
                 android:layout_height="25dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginEnd="20dp"
                 android:background="@color/colorWhite"
                 android:text="@string/plus"
                 android:textColor="@color/colorPrimary"
@@ -118,7 +110,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
             android:text="@string/suma2"
             android:textColor="@color/colorWhite" />
@@ -127,7 +118,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -135,7 +125,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
                 android:textColor="@color/colorPrimary1"
                 android:textSize="18sp"
                 android:textStyle="italic"
@@ -146,9 +135,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
                 android:importantForAutofill="no"
                 android:inputType="numberDecimal"
+                android:hint="@string/wpisz"
                 android:textColor="@color/colorPrimary1"
                 android:textSize="18sp"
                 android:textStyle="italic"
@@ -158,8 +147,7 @@
                 android:id="@+id/plusBtn2"
                 android:layout_width="35dp"
                 android:layout_height="25dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginEnd="20dp"
                 android:background="@color/colorWhite"
                 android:text="@string/plus"
                 android:textColor="@color/colorPrimary"
@@ -180,18 +168,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
             android:text="@string/suma1"
             android:textColor="@color/colorWhite" />
+
 
         <TextView
             android:id="@+id/vatEt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
             android:textColor="@color/colorPrimary1"
             android:textSize="18sp"
             android:textStyle="italic" />
@@ -200,14 +186,13 @@
             android:id="@+id/seekBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="15dp"
             android:max="100" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
             android:text="@string/vat"
             android:textColor="@color/colorWhite" />
@@ -216,9 +201,8 @@
             android:id="@+id/dayEt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
             android:textColor="@color/colorPrimary1"
             android:textSize="18sp"
             android:textStyle="italic" />
@@ -227,7 +211,7 @@
             android:id="@+id/seekBar1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="15dp"
             android:max="28"
             android:min="1" />
 
@@ -235,7 +219,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
             android:text="@string/day"
             android:textColor="@color/colorWhite" />
@@ -252,7 +235,6 @@
                 android:layout_width="140dp"
                 android:layout_height="40dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
                 android:background="@color/colorWhite"
                 android:text="@string/noOk"
                 android:textColor="@color/colorPrimary"
