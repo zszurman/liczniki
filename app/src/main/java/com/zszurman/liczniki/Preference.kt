@@ -1,7 +1,6 @@
 package com.zszurman.liczniki
 
 import android.content.Context
-import kotlin.math.roundToInt
 
 class Preference(context: Context) {
 
