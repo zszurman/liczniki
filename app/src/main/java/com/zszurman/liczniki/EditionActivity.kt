@@ -1,7 +1,9 @@
 package com.zszurman.liczniki
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.widget.SeekBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +25,64 @@ class EditionActivity : AppCompatActivity() {
 
         makeEditText()
         setActionBar()
+        makeOnClick()
+    }
+
+    private fun setActionBar() {
+        val mActionBar = supportActionBar
+        mActionBar?.title = "Licznik nr " + (currentIdEt + 1).toString()
+        mActionBar?.subtitle = "Przeglądaj i aktualizuj dane"
+    }
+
+    @SuppressLint("DefaultLocale")
+    private fun makeEditText() {
+        seekBar.progress = list[currentIdEt].vat
+        seekBar1.progress = list[currentIdEt].dayMeasurement
+        val x = "Licznik nr " + (currentIdEt + 1).toString()
+        idEt.text = x
+        nameEt.setText(list[currentIdEt].name)
+        unitEt.setText(list[currentIdEt].unit)
+
+        val x1 = list[currentIdEt].unitPrice.toDouble() / 100000
+        upEt.text = x1.toString()
+
+        val x2 = list[currentIdEt].fixedFess.toDouble() / 100
+        cpEt.text = x2.toString()
+        vatEt.text = list[currentIdEt].vat.toString()
+        dayEt.text = list[currentIdEt].dayMeasurement.toString()
+
+        when (list[currentIdEt].vat) {
+            100 -> {
+                plusBtn3.visibility = View.INVISIBLE
+                minusBtn3.visibility = View.VISIBLE
+            }
+            0 -> {
+                minusBtn3.visibility = View.INVISIBLE
+                plusBtn3.visibility = View.VISIBLE
+            }
+            else -> {
+                minusBtn3.visibility = View.VISIBLE
+                plusBtn3.visibility = View.VISIBLE
+            }
+        }
+
+        when (list[currentIdEt].dayMeasurement) {
+            28 -> {
+                plusBtn4.visibility = View.INVISIBLE
+                minusBtn4.visibility = View.VISIBLE
+            }
+            1 -> {
+                minusBtn4.visibility = View.INVISIBLE
+                plusBtn4.visibility = View.VISIBLE
+            }
+            else -> {
+                minusBtn4.visibility = View.VISIBLE
+                plusBtn4.visibility = View.VISIBLE
+            }
+        }
+    }
+
+    private fun makeOnClick() {
         btnEt.setOnClickListener {
             when {
                 nameEt.text.toString().isEmpty() -> Toast.makeText(
@@ -73,6 +133,10 @@ class EditionActivity : AppCompatActivity() {
             cpEt.text = getString(R.string.zero2)
             sumEt2.setText("")
         }
+        seekBar.max = 100
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            seekBar.min = 0
+        }
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
                 vatEt.text = i.toString()
@@ -82,9 +146,46 @@ class EditionActivity : AppCompatActivity() {
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar) {
-
+                when (seekBar.progress) {
+                    100 -> {
+                        plusBtn3.visibility = View.INVISIBLE
+                        minusBtn3.visibility = View.VISIBLE
+                    }
+                    0 -> {
+                        minusBtn3.visibility = View.INVISIBLE
+                        plusBtn3.visibility = View.VISIBLE
+                    }
+                    else -> {
+                        minusBtn3.visibility = View.VISIBLE
+                        plusBtn3.visibility = View.VISIBLE
+                    }
+                }
             }
         })
+
+        minusBtn3.setOnClickListener {
+            plusBtn3.visibility = View.VISIBLE
+            var x = vatEt.text.toString().toInt()
+            if (x > 0) x -= 1
+            vatEt.text = x.toString()
+            seekBar.progress = x
+            if (x == 0) minusBtn3.visibility = View.INVISIBLE
+
+        }
+        plusBtn3.setOnClickListener {
+            minusBtn3.visibility = View.VISIBLE
+            var x = vatEt.text.toString().toInt()
+            if (x < 100) x += 1
+            vatEt.text = x.toString()
+            seekBar.progress = x
+            if (x == 100) plusBtn3.visibility = View.INVISIBLE
+        }
+
+        seekBar1.max = 28
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            seekBar1.min = 1
+        }
+
         seekBar1.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
                 dayEt.text = i.toString()
@@ -95,33 +196,41 @@ class EditionActivity : AppCompatActivity() {
 
             override fun onStopTrackingTouch(seekBar: SeekBar) {
 
+                when (seekBar.progress) {
+                    28 -> {
+                        plusBtn4.visibility = View.INVISIBLE
+                        minusBtn4.visibility = View.VISIBLE
+                    }
+                    1 -> {
+                        minusBtn4.visibility = View.INVISIBLE
+                        plusBtn4.visibility = View.VISIBLE
+                    }
+                    else -> {
+                        minusBtn4.visibility = View.VISIBLE
+                        plusBtn4.visibility = View.VISIBLE
+                    }
+                }
+
             }
         })
-    }
 
-    private fun setActionBar() {
-        val mActionBar = supportActionBar
-        mActionBar?.title = "Licznik nr " + (currentIdEt + 1).toString()
-        mActionBar?.subtitle = "Przeglądaj i aktualizuj dane"
-    }
+        minusBtn4.setOnClickListener {
+            plusBtn4.visibility = View.VISIBLE
+            var x = dayEt.text.toString().toInt()
+            if (x > 1) x -= 1
+            dayEt.text = x.toString()
+            seekBar1.progress = x
+            if (x == 1) minusBtn4.visibility = View.INVISIBLE
 
-    @SuppressLint("DefaultLocale")
-    private fun makeEditText() {
-        seekBar.progress = list[currentIdEt].vat
-        seekBar1.progress = list[currentIdEt].dayMeasurement
-        val x = "Licznik nr " + (currentIdEt + 1).toString()
-        idEt.text = x
-        nameEt.setText(list[currentIdEt].name)
-        unitEt.setText(list[currentIdEt].unit)
-
-        val x1 = list[currentIdEt].unitPrice.toDouble() / 100000
-        upEt.text = x1.toString()
-
-        val x2 = list[currentIdEt].fixedFess.toDouble() / 100
-        cpEt.text = x2.toString()
-
-        vatEt.text = list[currentIdEt].vat.toString()
-        dayEt.text = list[currentIdEt].dayMeasurement.toString()
+        }
+        plusBtn4.setOnClickListener {
+            minusBtn4.visibility = View.VISIBLE
+            var x = dayEt.text.toString().toInt()
+            if (x < 28) x += 1
+            dayEt.text = x.toString()
+            seekBar1.progress = x
+            if (x == 28) plusBtn4.visibility = View.INVISIBLE
+        }
     }
 
     private fun updateData() {

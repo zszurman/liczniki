@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="IconColors">
+        <ignore path="src/main/res/drawable/ic_action_edit.png" />
+        <ignore path="src/main/res/drawable/ic_action_up.png" />
+    </issue>
+    <issue id="IconDuplicates">
+        <ignore path="src/main/res/mipmap-xxhdpi/ic_launcher_round.png" />
+    </issue>
+</lint>

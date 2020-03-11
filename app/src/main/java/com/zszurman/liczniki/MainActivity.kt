@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity() {
             arrayOf("1 licznik", "2 liczniki", "3 liczniki", "4 liczniki")
         val mBuilder = AlertDialog.Builder(this)
         mBuilder.setTitle("Wybierz ilość liczników")
-        mBuilder.setIcon(R.mipmap.ic_launcher)
+        mBuilder.setIcon(R.mipmap.ic_launcher_round)
         mBuilder.setSingleChoiceItems(sortOptions, -1) { dialogInterface, i ->
             when (i) {
                 0 -> {
