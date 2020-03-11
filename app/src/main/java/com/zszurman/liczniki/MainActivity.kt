@@ -9,13 +9,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 import kotlin.collections.ArrayList
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var cardViewAdapter: CardViewAdapter
 
     companion object X {
         var measurement = 0
@@ -26,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         var currentSubtitle = ""
         var cC = 4
         lateinit var list: ArrayList<Counter>
+        lateinit var cardViewAdapter: CardViewAdapter
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -157,7 +157,6 @@ class MainActivity : AppCompatActivity() {
         }
         val mDialog = mBuilder.create()
         mDialog.show()
-
     }
 
     private fun showMessage() {
