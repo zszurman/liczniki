@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         var currentId = 100
         var currentName = ""
         var currentSubtitle = ""
-        var cC = 4
+        var cC = 1
         lateinit var list: ArrayList<Counter>
     }
 
