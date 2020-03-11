@@ -3,7 +3,7 @@
     <string name="ostatni_odczyt" tools:keep="@string/ostatni_odczyt">ostatni odczyt</string>
     <string name="aktualny_odczyt" tools:keep="@string/aktualny_odczyt">aktualny odczyt</string>
     <string name="ok">Aktualizuj</string>
-    <string name="click"><![CDATA[<- kliknij odczyty ->]]></string>
+    <string name="click"><![CDATA[-> ->]]></string>
     <string name="p0">Podaj odczyt początkowy</string>
     <string name="p1">Podaj odczyt aktualny</string>
     <string name="jednostka">Jednostka miary licznika (np kW, m^3, km, itd.)</string>
@@ -15,20 +15,14 @@
     <string name="uwaga">Uwaga: odczyty wprowadzaj klikając je na głównym ekranie. Odczyt początkowy znajduje się po lewej stronie a odczyt aktualny po prawej.</string>
     <string name="noOk">Nie aktualizuj</string>
     <string name="menu">Ilość liczników</string>
-    <string name="title_message">Witam Cię Serdecznie :)</string>
+    <string name="title_message">Witam Cię Serdecznie</string>
     <string name="pomoc">Pomoc</string>
     <string name="image">TODO</string>
     <string name="up">Przesuń wyżej</string>
-    <string name="zero">0.0</string>
     <string name="plus">+</string>
     <string name="del">del</string>
-    <string name="minus">-</string>
-    <string name="plusVat">+ 0.1</string>
-    <string name="_1">-1</string>
-    <string name="plus1">+1</string>
     <string name="wpisz">Wpisz cyfrę</string>
     <string name="zero5">0.00000</string>
     <string name="zero2">0.00</string>
     <string name="edytuj">Edytuj</string>
-
 </resources>

@@ -14,6 +14,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var cardViewAdapter: CardViewAdapter
+
     companion object X {
         var measurement = 0
         var screen = 0
@@ -23,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         var currentSubtitle = ""
         var cC = 4
         lateinit var list: ArrayList<Counter>
-        lateinit var cardViewAdapter: CardViewAdapter
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -167,22 +168,30 @@ class MainActivity : AppCompatActivity() {
                     "ma więcej niż 28 dni). Jeżeli odczyty podajesz ostatniego dnia miesiąca to zastąp go pierwszym dniem. " +
                     "Aplikacja wylicza prognozowany rachunek miesięczny na podstawie bieżącego zużycie i w ten sposób " +
                     "informuje Cię jak bieżące zużycie wpłynie na wysokość rachunku miesięcznego (rachunek prognozowany). " +
-                    "Poza tym wylicza aktualne - zużycie, koszt zużycia i rachunek\n\n" +
+                    "Poza tym wylicza aktualne - zużycie, koszt zużycia i rachunek.\n\n" +
+
                     "2. Możesz wybrać do 4 liczników." +
                     "Jeżeli w trakcie korzystania z aplikacji zdecydujesz, że chcesz mieć mniej " +
                     "liczników to możesz to w każdej chwili zmienić. Zmiana ta nie spowoduje utraty " +
-                    "danych ukrytych liczników lecz spowoduje, że będą one niewidoczne. " +
+                    "danych ukrytych liczników, będą one po prostu niewidoczne. " +
                     "Po ponownym zwiększeniu liczby liczników zostaną one pokazane a dane nie zostaną utracone." +
-                    "Jeżeli chcesz ukryć licznik z góry to przesuń go w dół gdyż liczniki będą ukrywane " +
-                    "od dołu.\n\n " +
-                    "3. Możesz nawigować licznikami w górę korzystając z przycisku. " +
-                    "Licznik położony wyżej przesunie się w dół\n\n" +
-                    "4. Wprowadzaj odczyty początkowy i " +
+                    "Jeżeli chcesz ukryć licznik z góry to przesuń wyżej licznik położony niżej, gdyż liczniki będą ukrywane od " +
+                    "od dołu.\n\n" +
+
+                    "3. Wprowadzaj odczyty początkowy i " +
                     "aktualny klikając na pomarańczowe liczby. Po pojawieniu się wirtualnego licznika " +
-                    "ustaw żądaną wartość.\n\n" +
-                    "5. Klikając w ekran prezentujący dane licznika przechodzisz do jego edycji. Znajdziesz tam wskazówki co wpisać w " +
+                    "ustaw żądaną wartość i zaakceptuj ją.\n\n" +
+
+                    "4. Kliknij przycisk edytuj i przejdź  do  edycji licznika. Znajdziesz tam wskazówki co wpisać w " +
                     "kolejne pola.\n\n" +
-                    "Miłej zabawy!\nZbigniew Szurman "
+
+                    "5. Z powodzeniem możesz też monitorować ilość wypitego piwa (wypalonych paczek papierosów itp.) " +
+                    "w miesiącu i zobaczyć jakie koszty to generuje. Rachunek aktualny uwzględnia koszty stałe, " +
+                    "np. zakup nowego kufla.\n\n" +
+
+                    "6. Kontroluj swoje rachunki ale bez przesady, czasami daj się ponieść.\n\n" +
+                    "Miłej zabawy!\n" +
+                    "Zbigniew Szurman "
 
         val builder = AlertDialog.Builder(this@MainActivity)
         builder.setCancelable(true)
@@ -190,6 +199,5 @@ class MainActivity : AppCompatActivity() {
         builder.setMessage(message)
         builder.show()
     }
-
 }
 

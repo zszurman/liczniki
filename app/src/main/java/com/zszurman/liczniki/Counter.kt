@@ -89,11 +89,15 @@ class Counter(
         val s1 = format("%.2f", calculatePriceWear())
         val s2 = format("%.2f", currentAcount())
         val s3 = format("%.2f", forecastAcount())
+
         return """${id + 1}. $name
-odczyt = $initialState ($dayMeasurement dnia m-ca)
-akt. odczyt = $endState
-akt. zużycie = ${calculateWear()} $unit ($s1 zł.)
-akt. rachunek = $s2 zł.
-prog. rachunek = $s3 zł."""
+
+odczyt $dayMeasurement dnia m-ca = $initialState $unit
+odczyt aktualny = $endState $unit
+zużycie aktualne = ${calculateWear()} $unit
+koszt zużycia = $s1 zł.
+rachunek aktualny = $s2 zł.
+
+prognozowany rachunek miesięczny = $s3 zł."""
     }
 }
