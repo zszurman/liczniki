@@ -89,21 +89,21 @@ class Counter(
 
     @SuppressLint("DefaultLocale")
     fun makeString(): String {
+
         val s1 = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             format(Locale.forLanguageTag("PL"), "%,.2f", calculatePriceWear())
-        } else {
-            String.format("%.2f", calculatePriceWear())
-        }
+        } else String.format("%.2f", calculatePriceWear())
+
+
         val s2 = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             format(Locale.forLanguageTag("PL"), "%,.2f", currentAcount())
-        } else {
-            String.format("%.2f", currentAcount())
-        }
+        } else String.format("%.2f", currentAcount())
+
+
         val s3 = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             format(Locale.forLanguageTag("PL"), "%,.2f", forecastAcount())
-        } else {
-            String.format("%.2f", forecastAcount())
-        }
+        } else String.format("%.2f", forecastAcount())
+
 
         val y1 = """$s1 zł."""
         val y2 = """$s2 zł. (wraz z opłatami stałymi)"""
@@ -111,21 +111,18 @@ class Counter(
 
         val z1 = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             format(Locale.forLanguageTag("PL"), "%,d", initialState)
-        } else {
-            initialState.toString()
-        }
+        } else initialState.toString()
+
 
         val z2 = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             format(Locale.forLanguageTag("PL"), "%,d", endState)
-        } else {
-            endState.toString()
-        }
+        } else endState.toString()
+
 
         val z3 = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             format(Locale.forLanguageTag("PL"), "%,d", calculateWear())
-        } else {
-            calculateWear().toString()
-        }
+        } else calculateWear().toString()
+
 
         return """${id + 1}. $name
 -  -  -  -  -

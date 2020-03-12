@@ -165,31 +165,29 @@ class MainActivity : AppCompatActivity() {
                     "związanych ze zużyciem mediów zaopatrzonych w liczniki (np. paliwo, woda, gaz, energia elektryczna itd.) " +
                     "Zakłada ona, że co miesiąc podajesz odczyty generujące miesięczny rachunek. " +
                     "Dlatego dla każdego licznika podajesz właśnie ten dzień miesiąca w zakresie od 1 do 28 (bo nie każdy miesiąc " +
-                    "ma więcej niż 28 dni). Jeżeli odczyty podajesz ostatniego dnia miesiąca to zastąp go pierwszym dniem. " +
+                    "ma więcej niż 28 dni). Jeżeli odczyty podajesz ostatniego dnia miesiąca, to zastąp go pierwszym dniem. " +
                     "Aplikacja wylicza prognozowany rachunek miesięczny na podstawie bieżącego zużycie i w ten sposób " +
-                    "informuje Cię jak bieżące zużycie wpłynie na wysokość rachunku miesięcznego (rachunek prognozowany). " +
-                    "Poza tym wylicza aktualne - zużycie, koszt zużycia i rachunek.\n\n" +
+                    "informuje Cię, jak bieżące zużycie wpłynie na wysokość rachunku miesięcznego (rachunek prognozowany). " +
+                    "Poza tym wylicza aktualne: zużycie, koszt i rachunek.\n\n" +
 
                     "2. Możesz wybrać do 4 liczników." +
-                    "Jeżeli w trakcie korzystania z aplikacji zdecydujesz, że chcesz mieć mniej " +
-                    "liczników to możesz to w każdej chwili zmienić. Zmiana ta nie spowoduje utraty " +
-                    "danych ukrytych liczników, będą one po prostu niewidoczne. " +
-                    "Po ponownym zwiększeniu liczby liczników zostaną one pokazane a dane nie zostaną utracone." +
-                    "Jeżeli chcesz ukryć licznik z góry to przesuń wyżej licznik położony niżej, gdyż liczniki będą ukrywane od " +
+                    "W trakcie korzystania z aplikacji możesz zmieniać ilość liczników. Ukrycie licznika nie spowoduje " +
+                    "utraty jego danych, stanie się po prostu niewidoczny. Po ponownym zwiększeniu liczby liczników " +
+                    "zostaną one pokazane. " +
+                    "Jeżeli chcesz ukryć licznik z góry, to przesuń wyżej licznik położony niżej, gdyż liczniki będą ukrywane od " +
                     "od dołu.\n\n" +
 
                     "3. Wprowadzaj odczyty początkowy i " +
-                    "aktualny klikając na pomarańczowe liczby. Po pojawieniu się wirtualnego licznika " +
+                    "aktualny, klikając na pomarańczowe liczby. Po pojawieniu się wirtualnego licznika, " +
                     "ustaw żądaną wartość i zaakceptuj ją.\n\n" +
 
-                    "4. Kliknij przycisk edytuj i przejdź  do  edycji licznika. Znajdziesz tam wskazówki co wpisać w " +
-                    "kolejne pola.\n\n" +
+                    "4. Kliknij przycisk edytuj i przejdź  do  edycji licznika. Znajdziesz tam wskazówki dotyczące edycji.\n\n" +
 
                     "5. Z powodzeniem możesz też monitorować ilość wypitego piwa (wypalonych paczek papierosów itp.) " +
                     "w miesiącu i zobaczyć jakie koszty to generuje. Rachunek aktualny uwzględnia koszty stałe, " +
                     "np. zakup nowego kufla.\n\n" +
 
-                    "6. Kontroluj swoje rachunki ale bez przesady, czasami daj się ponieść.\n\n" +
+                    "6. Kontroluj swoje rachunki, ale bez przesady, czasami daj się ponieść.\n\n" +
                     "Miłej zabawy!\n" +
                     "Zbigniew Szurman "
 
