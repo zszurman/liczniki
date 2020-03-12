@@ -1,7 +1,10 @@
 package com.zszurman.liczniki
 
 import android.annotation.SuppressLint
+import android.os.Build
 import java.lang.String.format
+import java.util.*
+import kotlin.collections.ArrayList
 
 object Data {
     private const val id1 = 0
@@ -86,20 +89,54 @@ class Counter(
 
     @SuppressLint("DefaultLocale")
     fun makeString(): String {
-        val s1 = format("%.2f", calculatePriceWear())
-        val s2 = format("%.2f", currentAcount())
-        val s3 = format("%.2f", forecastAcount())
+        val s1 = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            format(Locale.forLanguageTag("PL"), "%,.2f", calculatePriceWear())
+        } else {
+            String.format("%.2f", calculatePriceWear())
+        }
+        val s2 = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            format(Locale.forLanguageTag("PL"), "%,.2f", currentAcount())
+        } else {
+            String.format("%.2f", currentAcount())
+        }
+        val s3 = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            format(Locale.forLanguageTag("PL"), "%,.2f", forecastAcount())
+        } else {
+            String.format("%.2f", forecastAcount())
+        }
+
+        val y1 = """$s1 zł."""
+        val y2 = """$s2 zł. (wraz z opłatami stałymi)"""
+        val y3 = """$s3 zł."""
+
+        val z1 = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            format(Locale.forLanguageTag("PL"), "%,d", initialState)
+        } else {
+            initialState.toString()
+        }
+
+        val z2 = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            format(Locale.forLanguageTag("PL"), "%,d", endState)
+        } else {
+            endState.toString()
+        }
+
+        val z3 = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            format(Locale.forLanguageTag("PL"), "%,d", calculateWear())
+        } else {
+            calculateWear().toString()
+        }
 
         return """${id + 1}. $name
 -  -  -  -  -
-Odczyt $dayMeasurement dnia m-ca = $initialState $unit
-Odczyt aktualny = $endState $unit
-Przyrost = ${calculateWear()} $unit
+Odczyt $dayMeasurement dnia m-ca = $z1 $unit
+Odczyt aktualny = $z2 $unit
+Przyrost = $z3 $unit
 -  -  -  -  -
-Aktualny koszt = $s1 zł.
-Aktualny rachunek = $s2 zł. (wraz z opłatami stałymi)
+Aktualny koszt = $y1
+Aktualny rachunek = $y2
 -  -  -  -  - 
 Prognozowany 
-rachunek miesięczny = $s3 zł."""
+rachunek miesięczny = $y3"""
     }
 }

@@ -44,10 +44,10 @@ class EditionActivity : AppCompatActivity() {
         unitEt.setText(list[currentIdEt].unit)
 
         val x1 = list[currentIdEt].unitPrice.toDouble() / 100000
-        upEt.text = x1.toString()
+        upEt.text = String.format("%.5f", x1)
 
         val x2 = list[currentIdEt].fixedFess.toDouble() / 100
-        cpEt.text = x2.toString()
+        cpEt.text = String.format("%.2f", x2)
         vatEt.text = list[currentIdEt].vat.toString()
         dayEt.text = list[currentIdEt].dayMeasurement.toString()
 
@@ -65,7 +65,6 @@ class EditionActivity : AppCompatActivity() {
                 plusBtn3.visibility = View.VISIBLE
             }
         }
-
         when (list[currentIdEt].dayMeasurement) {
             28 -> {
                 plusBtn4.visibility = View.INVISIBLE
@@ -83,6 +82,7 @@ class EditionActivity : AppCompatActivity() {
     }
 
     private fun makeOnClick() {
+
         btnEt.setOnClickListener {
             when {
                 nameEt.text.toString().isEmpty() -> Toast.makeText(
@@ -109,11 +109,11 @@ class EditionActivity : AppCompatActivity() {
         plusBtn1.setOnClickListener {
 
             val x = (upEt.text.toString().toDouble() * 100000).roundToInt()
-            val y = if (sumEt1.text.isNullOrEmpty()) 0
+            val y = if (sumEt1.text.isNullOrEmpty() || sumEt1.text.toString() == ".") 0
             else (sumEt1.text.toString().toDouble() * 100000).roundToInt()
             val z = x + y
             val z1 = (z.toDouble()) / 100000
-            upEt.text = z1.toString()
+            upEt.text = String.format("%.5f", z1)
             sumEt1.setText("")
         }
         delBtn1.setOnClickListener {
@@ -122,11 +122,11 @@ class EditionActivity : AppCompatActivity() {
         }
         plusBtn2.setOnClickListener {
             val x = (cpEt.text.toString().toDouble() * 100).roundToInt()
-            val y = if (sumEt2.text.isNullOrEmpty()) 0
+            val y = if (sumEt2.text.isNullOrEmpty() || sumEt2.text.toString() == ".") 0
             else (sumEt2.text.toString().toDouble() * 100).roundToInt()
             val z = x + y
             val z1 = (z.toDouble()) / 100
-            cpEt.text = z1.toString()
+            cpEt.text = String.format("%.2f",z1)
             sumEt2.setText("")
         }
         delBtn2.setOnClickListener {

@@ -15,6 +15,8 @@
         android:orientation="horizontal"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
         android:background="@color/colorWhite">
 
         <com.alexzaitsev.meternumberpicker.MeterView
@@ -30,7 +32,7 @@
             android:layout_height="40dp"
             android:text="@string/ok"
             android:background="@color/colorWhite"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimary2"/>
 
     </LinearLayout>
 

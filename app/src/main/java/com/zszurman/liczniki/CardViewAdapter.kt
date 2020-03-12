@@ -42,7 +42,6 @@ class CardViewAdapter(private val context: Context) :
 class DocumentViewHolder(context: Context, holder: View) : RecyclerView.ViewHolder(holder) {
 
     private val edBt = holder.editBtn
-    private val upTv = holder.tvUp
     private val upBt = holder.upBtn
     private val inscription = holder.tv
     private val n1 = holder.tn1
@@ -59,7 +58,7 @@ class DocumentViewHolder(context: Context, holder: View) : RecyclerView.ViewHold
 
         if (counter.id == 0) {
             upBt.visibility = View.INVISIBLE
-            upTv.visibility = View.INVISIBLE
+
         }
         inscription.text = counter.makeString()
         n1.text = counter.initialState.toString()
