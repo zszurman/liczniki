@@ -44,10 +44,10 @@ class EditionActivity : AppCompatActivity() {
         unitEt.setText(list[currentIdEt].unit)
 
         val x1 = list[currentIdEt].unitPrice.toDouble() / 100000
-        upEt.text = String.format("%.5f", x1)
+        upEt.text = x1.toString()
 
         val x2 = list[currentIdEt].fixedFess.toDouble() / 100
-        cpEt.text = String.format("%.2f", x2)
+        cpEt.text = x2.toString()
         vatEt.text = list[currentIdEt].vat.toString()
         dayEt.text = list[currentIdEt].dayMeasurement.toString()
 
@@ -113,7 +113,7 @@ class EditionActivity : AppCompatActivity() {
             else (sumEt1.text.toString().toDouble() * 100000).roundToInt()
             val z = x + y
             val z1 = (z.toDouble()) / 100000
-            upEt.text = String.format("%.5f", z1)
+            upEt.text = z1.toString()
             sumEt1.setText("")
         }
         delBtn1.setOnClickListener {
@@ -126,7 +126,7 @@ class EditionActivity : AppCompatActivity() {
             else (sumEt2.text.toString().toDouble() * 100).roundToInt()
             val z = x + y
             val z1 = (z.toDouble()) / 100
-            cpEt.text = String.format("%.2f",z1)
+            cpEt.text = z1.toString()
             sumEt2.setText("")
         }
         delBtn2.setOnClickListener {
